@@ -1,8 +1,13 @@
 :root {
     --primary: hsl(216, 84%, 52%);
+    --secondary: rgb(39, 33, 21);
+    --variant: rgb(39, 136, 57);
+    --variant-hover: rgb(46, 160, 67);
     --text-color: rgb(240, 246, 252);
-    --bg-primary: #161b22;
-    --bg-secondary: rgb(1, 4, 9);
+
+    --bg-primary: rgb(13, 17, 23);
+    --bg-secondary: rgb(22, 27, 34);
+    --border-color: rgb(48, 54, 61);
 }
 
 body {
@@ -10,12 +15,22 @@ body {
 }
 
 .btn {
+    display: block;
     background: transparent;
     height: 30px;
+    text-align: center;
     color: var(--text-color);
 
-    border: 1px solid rgb(48, 54, 61);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
+
+    box-sizing: border-box;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    transition: all 0.3s ease-in-out;
 }
 
 .btn:hover {
@@ -24,4 +39,34 @@ body {
 
 .btn-primary {
     background: var(--primary);
+}
+
+.btn-submit {
+    background: var(--variant);
+    height: 35px;
+}
+
+.btn-submit:hover {
+    background: var(--variant-hover);
+}
+
+form {
+    background: var(--bg-secondary);
+    color: var(--text-color);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+input {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 30px;
+    color: var(--text-color);
 }
