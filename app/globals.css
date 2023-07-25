@@ -1,8 +1,27 @@
 :root {
-  --primary: #e1cb8e
-  --secondary: #071c0c
-  --accent: #3257bd
-  --text-color: #fdf7fb
-  --bg-primary: #0c030a
-  --bg-secondary:  
+    --primary: hsl(216, 84%, 52%);
+    --text-color: rgb(240, 246, 252);
+    --bg-primary: #161b22;
+    --bg-secondary: rgb(1, 4, 9);
+}
+
+body {
+    background: var(--bg-primary);
+}
+
+.btn {
+    background: transparent;
+    height: 30px;
+    color: var(--text-color);
+
+    border: 1px solid rgb(48, 54, 61);
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background: var(--bg-secondary);
+}
+
+.btn-primary {
+    background: var(--primary);
 }
