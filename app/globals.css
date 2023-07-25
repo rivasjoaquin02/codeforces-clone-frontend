@@ -6,12 +6,14 @@
     --text-color: rgb(240, 246, 252);
 
     --bg-primary: rgb(13, 17, 23);
+    --bg-navbar: rgb(1, 4, 9);
     --bg-secondary: rgb(22, 27, 34);
     --border-color: rgb(48, 54, 61);
 }
 
 body {
     background: var(--bg-primary);
+    margin: 0px;
 }
 
 .btn {
@@ -25,11 +27,7 @@ body {
     border-radius: 8px;
 
     box-sizing: border-box;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 16px;
-    padding-right: 16px;
-
+    padding: 5px 16px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -69,4 +67,59 @@ input {
     border-radius: 5px;
     height: 30px;
     color: var(--text-color);
+}
+
+.navbar {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color);
+    background: var(--bg-navbar);
+    border-bottom: 2px solid rgb(33, 38, 45);
+}
+
+.__navbar-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.__navbar-title h1 {
+    margin: 0px;
+    font-size: 20px;
+}
+
+.__navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
+}
+
+.__navbar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.__navbar-nav a:hover {
+    background: var(--bg-secondary);
+}
+
+.avatar {
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+}
+
+.avatar:hover {
+    border: 2px solid var(--primary);
 }
