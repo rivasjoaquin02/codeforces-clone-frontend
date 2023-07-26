@@ -7,7 +7,7 @@ const signOutFields = [
 
 const apiroute = "http://localhost:8000";
 
-const SignOutForm = () => {
+const SignInForm = () => {
     return (
         <form action={`${apiroute}/auth/signout`} method="POST">
             {signOutFields.map((field) => (
@@ -16,11 +16,11 @@ const SignOutForm = () => {
                     <input type={field.type} required={field.required} />
                 </>
             ))}
-            <button type="submit" className="btn btn-submit">
+            <button type="submit" className="btn btn-submit border">
                 Sign out
             </button>
         </form>
     );
 };
 
-export default SignOutForm;
+export default SignInForm;

@@ -32,7 +32,7 @@ interface Props {
 
 const ProblemsTable = ({ problems }: Props) => {
     return (
-        <table className="__problems-table">
+        <table className="border">
             <thead className="__problems-table-header">
                 <tr>
                     {headers.map((header) => (

@@ -1,5 +1,7 @@
+import ProblemsCreate from "@/components/Problems/ProblemsCreate";
+
 const CreateProblemPage = () => {
-    return <main>create problem</main>;
+    return <ProblemsCreate />;
 };
 
 export default CreateProblemPage;

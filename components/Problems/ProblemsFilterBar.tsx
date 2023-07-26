@@ -13,7 +13,7 @@ const ProblemsFilterBar = ({ handleChange }: Props) => {
     const [difficulty, setDifficulty] = useState<string>("");
 
     return (
-        <div className="__problems-search-bar">
+        <div className="__problems-search-bar box border">
             <div className="__problems-search-bar-filter">
                 <div>
                     <input
@@ -36,13 +36,13 @@ const ProblemsFilterBar = ({ handleChange }: Props) => {
                     </select>
                 </div>
                 <button
-                    className="btn"
+                    className="btn border"
                     onClick={() => handleChange(title, difficulty)}
                 >
                     <Search size={20} />
                 </button>
             </div>
-            <Link href="/problems/create" className="btn btn-primary">
+            <Link href="/problems/create" className="btn btn-primary border">
                 create
             </Link>
         </div>
