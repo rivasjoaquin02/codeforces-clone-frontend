@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Search, Plus } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -43,6 +43,7 @@ const ProblemsFilterBar = ({ handleChange }: Props) => {
                 </button>
             </div>
             <Link href="/problems/create" className="btn btn-primary">
+                <Plus size={20} />
                 create
             </Link>
         </div>

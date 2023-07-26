@@ -1,22 +1,22 @@
 "use client";
 
 import { Problem } from "@/types";
-import { ArrowDownUp } from "lucide-react";
+import { ArrowDownUp, Hash, User } from "lucide-react";
 
 const headers = [
     {
         value: "id",
-        label: "Id",
         isSortable: false,
+        icon: Hash,
     },
     {
         value: "authorId",
-        label: "Author",
         isSortable: false,
+        icon: User,
     },
     {
         value: "title",
-        label: "Title",
+        label: "Problem Title",
         isSortable: true,
     },
     {
@@ -37,8 +37,11 @@ const ProblemsTable = ({ problems }: Props) => {
                 <tr>
                     {headers.map((header) => (
                         <th key={header.value} id={header.value}>
-                            {header.isSortable && <ArrowDownUp size={20} />}
-                            {header.label}
+                            <div>
+                                {header.icon && <header.icon size={20} />}
+                                {header.label}
+                                {header.isSortable && <ArrowDownUp size={20} />}
+                            </div>
                         </th>
                     ))}
                 </tr>

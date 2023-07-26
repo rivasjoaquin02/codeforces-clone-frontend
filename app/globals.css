@@ -189,9 +189,20 @@ select {
     border: 1px solid var(--border-color);
 }
 
+.__problems-search-bar a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .__problems-search-bar-filter {
     display: flex;
     gap: 4px;
+}
+
+.__problems-search-bar-filter div {
+    display: flex;
+    gap: 0px;
 }
 
 .__problems-search-bar-filter input {
@@ -214,6 +225,13 @@ select {
 .__problems-table-header {
     height: 50px;
     background: var(--bg-secondary);
+}
+
+.__problems-table-header th div {
+    display: flex;
+    align-items: center;
+    place-content: center;
+    gap: 5px;
 }
 
 .__problems-table-body tr td {
