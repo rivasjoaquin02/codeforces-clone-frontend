@@ -12,7 +12,7 @@ const routes = [
         route: "/problems",
         icon: BookMarked,
     },
-    { value: "api", label: "Api", route: "/api", icon: Bot },
+    { value: "api", label: "Api", route: "/api-reference", icon: Bot },
 ];
 
 const user_avatar = "/avatar.jpg";

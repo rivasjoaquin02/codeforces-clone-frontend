@@ -16,7 +16,7 @@ const SignInForm = () => {
                     <input type={field.type} required={field.required} />
                 </>
             ))}
-            <button type="submit" className="btn btn-submit">
+            <button type="submit" className="btn btn-submit border">
                 Sign out
             </button>
         </form>
