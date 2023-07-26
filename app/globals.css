@@ -1,8 +1,13 @@
+/* GLOBALS */
+
 :root {
-    --primary: hsl(216, 84%, 52%);
+    --primary: hsla(216, 78%, 43%, 0.986);
+    --primary-hover: hsl(216, 84%, 52%);
     --secondary: rgb(39, 33, 21);
+    --secondary-hover: rgb(63, 53, 34);
     --variant: rgb(39, 136, 57);
     --variant-hover: rgb(46, 160, 67);
+
     --text-color: rgb(240, 246, 252);
 
     --bg-primary: rgb(13, 17, 23);
@@ -16,10 +21,56 @@ body {
     margin: 0px;
 }
 
+a {
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 15px;
+    padding: 20px;
+
+    height: fit-content;
+    width: 300px;
+
+    background: var(--bg-secondary);
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin: auto auto;
+}
+
+.form-page {
+    display: flex;
+    height: 100vh;
+}
+
+input {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 32px;
+    color: var(--text-color);
+}
+
+select {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 32px;
+    color: var(--text-color);
+
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* Buttons */
+
 .btn {
-    display: block;
     background: transparent;
-    height: 30px;
     text-align: center;
     color: var(--text-color);
 
@@ -32,11 +83,15 @@ body {
 }
 
 .btn:hover {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .btn-primary {
     background: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
 }
 
 .btn-submit {
@@ -48,34 +103,20 @@ body {
     background: var(--variant-hover);
 }
 
-form {
-    background: var(--bg-secondary);
-    color: var(--text-color);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-input {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    height: 30px;
-    color: var(--text-color);
+/* NavBar */
+.navbar-container {
+    background: var(--bg-navbar);
+    border-bottom: 2px solid rgb(33, 38, 45);
+    width: 100%;
 }
 
 .navbar {
     padding: 16px;
     display: flex;
-    justify-content: space-between;
     color: var(--text-color);
-    background: var(--bg-navbar);
-    border-bottom: 2px solid rgb(33, 38, 45);
+    justify-content: space-between;
+    max-width: 950px;
+    margin: 0 auto;
 }
 
 .__navbar-title {
@@ -103,7 +144,6 @@ input {
     padding: 10px;
     border-radius: 10px;
     color: var(--text-color);
-    text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
 
@@ -118,8 +158,73 @@ input {
     border-radius: 50%;
     border: 2px solid var(--border-color);
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
 .avatar:hover {
     border: 2px solid var(--primary);
+}
+
+/* Problems Page */
+
+.problems {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 12px;
+    padding-top: 50px;
+
+    max-width: 900px;
+    margin: auto auto;
+}
+
+/* Problems Search Bar */
+
+.__problems-search-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.__problems-search-bar-filter {
+    display: flex;
+    gap: 4px;
+}
+
+.__problems-search-bar-filter input {
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+}
+
+.__problems-search-bar-filter select {
+    border-radius: 0 8px 8px 0;
+}
+
+/* Problems Table */
+
+.__problems-table {
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.__problems-table-header {
+    height: 50px;
+    background: var(--bg-secondary);
+}
+
+.__problems-table-body tr td {
+    text-align: center;
+}
+
+.__table_id {
+    width: 5px;
+    padding: 20px 10px;
+}
+
+.__table_title_tags {
+    padding: 0 15px;
 }
