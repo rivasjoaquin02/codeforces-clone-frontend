@@ -19,26 +19,32 @@ const user_avatar = "/avatar.jpg";
 
 const NavBar = () => {
     return (
-        <div className="navbar">
-            <div className="__navbar-title">
-                <Code2 size={32} />
-                <h1>{WebSiteName}</h1>
-            </div>
-            <nav className="__navbar-nav">
-                {routes.map((route) => (
-                    <Link id={route.value} href={route.route}>
-                        <route.icon size={20} />
-                        {route.label}
-                    </Link>
-                ))}
-            </nav>
-            <div className="avatar">
-                <Image
-                    alt="user avatar"
-                    width={34}
-                    height={34}
-                    src={user_avatar}
-                />
+        <div className="navbar-container">
+            <div className="navbar">
+                <div className="__navbar-title">
+                    <Code2 size={32} />
+                    <h1>{WebSiteName}</h1>
+                </div>
+                <nav className="__navbar-nav">
+                    {routes.map((route) => (
+                        <Link
+                            key={route.value}
+                            id={route.value}
+                            href={route.route}
+                        >
+                            <route.icon size={20} />
+                            {route.label}
+                        </Link>
+                    ))}
+                </nav>
+                <div className="avatar">
+                    <Image
+                        alt="user avatar"
+                        width={34}
+                        height={34}
+                        src={user_avatar}
+                    />
+                </div>
             </div>
         </div>
     );
