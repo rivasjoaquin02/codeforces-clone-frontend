@@ -254,12 +254,30 @@ textarea {
 
 /* Create Problems Page */
 
-.__problems-problem-info {
+.problem-info {
     display: flex;
+    flex-direction: column;
+}
+
+.create-problems {
+    display: grid;
+    grid-template-rows: repeat(3, 1f);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
-.__problems-problem-info div {
-    width: 50%;
+.create-problems select {
+    color: var(--text-color);
     background: var(--bg-secondary);
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.create-problems textarea {
+    width: 99%;
+    height: 80%;
 }
