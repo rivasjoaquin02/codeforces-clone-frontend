@@ -283,6 +283,48 @@ textarea {
     height: 80%;
 }
 
+.tag {
+    display: block;
+    background: var(--bg-primary);
+    width: fit-content;
+
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea[readonly] {
+    border: none;
+    resize: none;
+}
+
+.tag {
+    display: block;
+    background: var(--bg-primary);
+    width: fit-content;
+
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea[readonly] {
+    border: none;
+    resize: none;
+}
+
 .error-message {
     background: var(--bg-error);
 

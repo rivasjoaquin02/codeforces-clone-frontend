@@ -2,6 +2,7 @@
 
 import { Problem } from "@/types";
 import { ArrowDownUp, Hash, User } from "lucide-react";
+import Link from "next/link";
 
 const headers = [
     {
@@ -52,7 +53,9 @@ const ProblemsTable = ({ problems }: Props) => {
                         <td className="__table_id">{problem.id}</td>
                         <td>{problem.authorId}</td>
                         <td className="__table_title_tags">
-                            <h3>{problem.title}</h3>
+                            <Link href={`/problems/${problem.id}`}>
+                                <h3> {problem.title}</h3>
+                            </Link>
                             <div>{problem.tags}</div>
                         </td>
                         <td>easy</td>
