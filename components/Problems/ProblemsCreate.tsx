@@ -1,42 +1,20 @@
 "use client";
 
-import axios from "axios";
 import { useState } from "react";
-
-const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lIiwiZXhwIjoxNjkwNDEwMTM4fQ.0IbNMHLrOmg9bw9AqT4nsm42xKobLjhbrMzidd5ec34";
-
-interface SubmitProblem {
-    title: string;
-    description: string;
-    example_input: string;
-    example_output: string;
-    tags: Array<string>;
-    difficulty: string;
-}
-
-const API_URL = "http://127.0.0.1:8000";
+import problemService from "@/services/problem";
 
 const ProblemsCreate = () => {
-    const [title, setTitle] = useState<string>();
-    const [difficulty, setDifficulty] = useState<string>("easy");
-    const [tags, setTags] = useState<Array<string>>();
-    const [inputExample, setInputExample] = useState<string>();
-    const [outputExample, setOutputExample] = useState<string>();
-    const [description, setDescription] = useState<string>();
+    const [title, setTitle] = useState<string>("");
+    const [difficulty, setDifficulty] = useState<string>("");
+    const [tags, setTags] = useState<Array<string>>([""]);
+    const [inputExample, setInputExample] = useState<string>("");
+    const [outputExample, setOutputExample] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
 
-    const handleClick = () => {
-        if (
-            !title ||
-            !difficulty ||
-            !tags ||
-            !inputExample ||
-            !outputExample ||
-            !description
-        )
-            return;
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
-        const data = {
+    const handleClick = async () => {
+        const problem = {
             title,
             description,
             example_input: inputExample,
@@ -45,17 +23,18 @@ const ProblemsCreate = () => {
             difficulty,
         };
 
-        console.log(data);
-
-        axios
-            .post(`${API_URL}/problems/create`, data, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `bearer ${token}`,
-                },
-            })
-            .then((res) => console.log(res.data))
-            .catch((e) => console.log(e));
+        try {
+            const response = await problemService.createProblem(problem);
+        } catch (error) {
+            if (error instanceof Error) {
+                setErrorMessage(error.message);
+            } else {
+                setErrorMessage("An unknown error occurred");
+            }
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 5000);
+        }
     };
 
     return (
@@ -98,6 +77,7 @@ const ProblemsCreate = () => {
                             name="difficulty"
                             id="difficulty"
                             value={difficulty}
+                            defaultValue="easy"
                             onChange={(e) => setDifficulty(e.target.value)}
                         >
                             <option value="easy">Easy</option>
@@ -127,6 +107,11 @@ const ProblemsCreate = () => {
 
                 {/* submit */}
                 <div className="box border" style={{ gridColumn: "span 2" }}>
+                    {errorMessage && (
+                        <span className="error-message box border">
+                            {errorMessage}
+                        </span>
+                    )}
                     <button
                         className="btn btn-primary border"
                         onClick={handleClick}

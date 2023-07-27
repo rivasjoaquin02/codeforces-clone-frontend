@@ -13,6 +13,7 @@
     --bg-primary: rgb(13, 17, 23);
     --bg-navbar: rgb(1, 4, 9);
     --bg-secondary: rgb(22, 27, 34);
+    --bg-error: rgba(250, 135, 3, 0.849);
     --border-color: rgb(48, 54, 61);
 }
 
@@ -280,4 +281,11 @@ textarea {
 .create-problems textarea {
     width: 99%;
     height: 80%;
+}
+
+.error-message {
+    background: var(--bg-error);
+
+    display: flex;
+    gap: 10px;
 }
