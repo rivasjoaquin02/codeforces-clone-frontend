@@ -1,12 +1,10 @@
 import "./TextArea.css";
 
-import { ChangeEvent } from "react";
-
 interface TextAreaProps {
     id?: string;
     value: string;
     variant?: "primary" | "secondary";
-    handleChange: (value: any) => void; //TODO: fix this any
+    handleChange?: (value: string) => void; //TODO: fix this any
     readOnly?: boolean;
 }
 
@@ -15,15 +13,15 @@ const Input = ({
     value,
     variant = "primary",
     handleChange,
-    readOnly,
+    readOnly = false,
 }: TextAreaProps) => {
     return (
         <textarea
             id={id}
             value={value}
-            className={`textarea textarea-${variant} border`}
-            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-                handleChange(e.target.value)
+            className={`textarea ${variant ? `textarea-${variant}` : ""}`}
+            onChange={
+                handleChange ? (e) => handleChange(e.target.value) : undefined
             }
             readOnly={readOnly}
         />

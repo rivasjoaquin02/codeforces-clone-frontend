@@ -1,11 +1,11 @@
 "use client";
 
-import { Problem } from "@/types";
+import { ProblemDB } from "@/types";
 import { ArrowDownUp, Hash, User } from "lucide-react";
 import Link from "next/link";
 import Tag from "../ui/Tag/Tag";
 
-const headers = [
+const HEADERS = [
     {
         value: "id",
         isSortable: false,
@@ -34,7 +34,7 @@ const headers = [
 ];
 
 interface Props {
-    problems: Array<Problem>;
+    problems: Array<ProblemDB>;
 }
 
 const ProblemsTable = ({ problems }: Props) => {
@@ -42,7 +42,7 @@ const ProblemsTable = ({ problems }: Props) => {
         <table className="border">
             <thead className="__problems-table-header">
                 <tr>
-                    {headers.map((header) => (
+                    {HEADERS.map((header) => (
                         <th key={header.value} id={header.value}>
                             <div>
                                 {header.icon && <header.icon size={20} />}

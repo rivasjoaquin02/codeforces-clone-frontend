@@ -9,16 +9,15 @@ interface Props {
     children: ReactNode;
 }
 
-const Button = ({ redirectUrl, handleClick, variant, children }: Props) => (
+const ButtonRedirect = ({ redirectUrl, handleClick, variant, children }: Props) => (
     <Link
         href={redirectUrl}
         type={`${variant === "submit" ? "submit" : "button"}`}
-        className={`btn btn-${variant} border`}
-        // className={`${styles.btn} ${styles[`btn-${variant}`]} border`}
+        className={`btn ${variant ? `btn-${variant}` : ""} border`}
         onClick={handleClick}
     >
         {children}
     </Link>
 );
 
-export default Button;
+export default ButtonRedirect;

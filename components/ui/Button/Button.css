@@ -6,6 +6,7 @@
     box-sizing: border-box;
     padding: 5px 16px;
     transition: all 0.3s ease-in-out;
+    width: fit-content;
 }
 
 .btn:hover {
@@ -31,6 +32,7 @@
 .btn-submit {
     background: var(--variant);
     padding: 10px 0;
+    width: 100%;
 }
 
 .btn-submit:hover {

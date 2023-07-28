@@ -9,7 +9,7 @@ interface Props {
     options: Array<{ value: string; label: string }>;
 }
 
-const select = ({
+const Select = ({
     id,
     title = "Select",
     value,
@@ -35,4 +35,4 @@ const select = ({
     );
 };
 
-export default select;
+export default Select;

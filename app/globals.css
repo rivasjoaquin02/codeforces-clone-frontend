@@ -22,13 +22,30 @@ body {
     margin: 0px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 12px;
+    padding: 50px 0;
+
+    max-width: 900px;
+    margin: auto auto;
+    color: var(--text-color);
+}
+
 a {
     text-decoration: none;
 }
 
-.form-page {
+.auth-layout {
     display: flex;
     height: 100vh;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .box {
@@ -107,7 +124,7 @@ a {
 
 /* Problems Page */
 
-.problems {
+/* .problems {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -117,7 +134,7 @@ a {
     max-width: 900px;
     margin: auto auto;
     color: var(--text-color);
-}
+} */
 
 /* Problems Search Bar */
 
@@ -177,7 +194,7 @@ a {
     flex-direction: column;
 }
 
-.create-problems {
+.problem-grid {
     display: grid;
     grid-template-rows: repeat(3, 1f);
     grid-template-columns: repeat(3, 1fr);
@@ -191,7 +208,7 @@ a {
     gap: 10px;
 }
 
-.submit-solution {
+.submit-solution-grid {
     display: grid;
     grid-template-rows: repeat(5, 1f);
     grid-template-columns: repeat(2, 1fr);
