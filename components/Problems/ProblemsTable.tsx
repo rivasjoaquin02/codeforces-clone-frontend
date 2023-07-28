@@ -3,6 +3,7 @@
 import { Problem } from "@/types";
 import { ArrowDownUp, Hash, User } from "lucide-react";
 import Link from "next/link";
+import Tag from "../ui/Tag/Tag";
 
 const headers = [
     {
@@ -19,6 +20,11 @@ const headers = [
         value: "title",
         label: "Problem Title",
         isSortable: true,
+    },
+    {
+        value: "tags",
+        label: "Tags",
+        isSortable: false,
     },
     {
         value: "difficulty",
@@ -50,13 +56,19 @@ const ProblemsTable = ({ problems }: Props) => {
             <tbody className="__problems-table-body">
                 {problems.map((problem) => (
                     <tr key={problem.id} id={problem.id}>
-                        <td className="__table_id">{problem.id}</td>
+                        <td>{problem.id}</td>
                         <td>{problem.authorId}</td>
-                        <td className="__table_title_tags">
+                        <td>
                             <Link href={`/problems/${problem.id}`}>
                                 <h3> {problem.title}</h3>
                             </Link>
-                            <div>{problem.tags}</div>
+                        </td>
+                        <td>
+                            <div className="tag-container">
+                                {problem.tags.map((tag) => (
+                                    <Tag key={tag}> {tag} </Tag>
+                                ))}
+                            </div>
                         </td>
                         <td>easy</td>
                     </tr>

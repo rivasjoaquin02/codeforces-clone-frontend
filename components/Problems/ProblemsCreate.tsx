@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import problemService from "@/services/problem";
+import { createProblem } from "@/services/problems";
+import Button from "../ui/Button/Button";
+import Select from "../ui/Select/Select";
+import { DIFFICULTIES } from "./ProblemsFilterBar";
+import Input from "../ui/Input/Input";
+import TextArea from "../ui/TextArea/TextArea";
 
 const ProblemsCreate = () => {
     const [title, setTitle] = useState<string>("");
@@ -24,7 +29,7 @@ const ProblemsCreate = () => {
         };
 
         try {
-            const response = await problemService.createProblem(problem);
+            const response = await createProblem(problem);
         } catch (error) {
             if (error instanceof Error) {
                 setErrorMessage(error.message);
@@ -36,6 +41,8 @@ const ProblemsCreate = () => {
             }, 5000);
         }
     };
+
+    console.log(tags);
 
     return (
         <div className="problems">
@@ -55,11 +62,10 @@ const ProblemsCreate = () => {
                         <label htmlFor="title">
                             <h3>Title</h3>
                         </label>
-                        <input
-                            type="text"
+                        <Input
                             id="title"
                             value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            handleChange={setTitle}
                         />
                     </div>
 
@@ -73,17 +79,13 @@ const ProblemsCreate = () => {
                         <label htmlFor="difficulty">
                             <h3>Difficulty</h3>
                         </label>
-                        <select
-                            name="difficulty"
+                        <Select
                             id="difficulty"
                             value={difficulty}
                             defaultValue="easy"
-                            onChange={(e) => setDifficulty(e.target.value)}
-                        >
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
+                            handleChange={setDifficulty}
+                            options={DIFFICULTIES}
+                        />
                     </div>
 
                     <div
@@ -96,12 +98,7 @@ const ProblemsCreate = () => {
                         <label htmlFor="tags">
                             <h3>Tags</h3>
                         </label>
-                        <input
-                            type="text"
-                            id="tags"
-                            value={tags}
-                            onChange={(e) => setTags(e.target.value.split(","))}
-                        />
+                        <Input id="tags" value={tags} handleChange={setTags} />
                     </div>
                 </div>
 
@@ -112,12 +109,7 @@ const ProblemsCreate = () => {
                             {errorMessage}
                         </span>
                     )}
-                    <button
-                        className="btn btn-primary border"
-                        onClick={handleClick}
-                    >
-                        Submit
-                    </button>
+                    <Button variant="primary">Submit</Button>
                 </div>
 
                 {/* description */}
@@ -128,11 +120,10 @@ const ProblemsCreate = () => {
                     <label htmlFor="description">
                         <h3>Problem Description</h3>
                     </label>
-                    <textarea
-                        name="description"
+                    <TextArea
                         id="description"
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        handleChange={setDescription}
                     />
                 </div>
 
@@ -148,11 +139,10 @@ const ProblemsCreate = () => {
                         <label htmlFor="input-example">
                             <h3>Input Example</h3>
                         </label>
-                        <input
-                            type="text"
+                        <Input
                             id="input-example"
                             value={inputExample}
-                            onChange={(e) => setInputExample(e.target.value)}
+                            handleChange={setInputExample}
                         />
                     </div>
 
@@ -166,11 +156,10 @@ const ProblemsCreate = () => {
                         <label htmlFor="output-example">
                             <h3>Output Example</h3>
                         </label>
-                        <input
-                            type="text"
+                        <Input
                             id="output-example"
                             value={outputExample}
-                            onChange={(e) => setOutputExample(e.target.value)}
+                            handleChange={setOutputExample}
                         />
                     </div>
                 </div>

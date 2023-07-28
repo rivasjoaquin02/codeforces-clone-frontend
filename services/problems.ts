@@ -34,9 +34,11 @@ export const createProblem = async (problem: Problem) => {
     return data;
 };
 
-export const getProblem = async (id: string) => {
+export const getProblemById = async (id: string) => {
     if (!id) throw new Error("Problem ID is missing");
 
+    console.log(id);
+    
     const { data } = await axios.get(`${baseUrl}/${id}`);
     return data;
 };

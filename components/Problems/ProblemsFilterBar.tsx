@@ -1,12 +1,21 @@
 "use client";
 
 import { Search, Plus } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
+import Button from "../ui/Button/Button";
+import Input from "../ui/Input/Input";
+import Select from "../ui/Select/Select";
+import ButtonRedirect from "../ui/Button/ButtonRedirect";
 
 interface Props {
     handleChange: (title?: string, difficulty?: string) => void;
 }
+
+export const DIFFICULTIES = [
+    { value: "easy", label: "Easy" },
+    { value: "medium", label: "Medium" },
+    { value: "hard", label: "Hard" },
+];
 
 const ProblemsFilterBar = ({ handleChange }: Props) => {
     const [title, setTitle] = useState<string>("");
@@ -16,36 +25,22 @@ const ProblemsFilterBar = ({ handleChange }: Props) => {
         <div className="__problems-search-bar box border">
             <div className="__problems-search-bar-filter">
                 <div>
-                    <input
-                        type="text"
-                        placeholder="search by title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <select
-                        title="select difficulty"
-                        name="difficulty"
-                        id="difficulty"
+                    <Input value={title} handleChange={setTitle} />
+                    <Select
+                        title="Difficulty"
                         value={difficulty}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    >
-                        <option value="">Difficulty</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
+                        handleChange={setDifficulty}
+                        options={DIFFICULTIES}
+                    />
                 </div>
-                <button
-                    className="btn border"
-                    onClick={() => handleChange(title, difficulty)}
-                >
+                <Button handleClick={() => handleChange(title, difficulty)}>
                     <Search size={20} />
-                </button>
+                </Button>
             </div>
-            <Link href="/problems/create" className="btn btn-primary border">
+            <ButtonRedirect redirectUrl="/problems/create" variant="primary">
                 <Plus size={20} />
                 create
-            </Link>
+            </ButtonRedirect>
         </div>
     );
 };

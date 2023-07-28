@@ -1,10 +1,16 @@
 import { Problem } from "@/types";
+import ButtonRedirect from "@/components/ui/Button/ButtonRedirect";
+import TextArea from "@/components/ui/TextArea/TextArea";
+import Tag from "@/components/ui/Tag/Tag";
 
 interface Props {
     data: Problem;
 }
 
 const ProblemInfo = ({ data }: Props) => {
+    // const submitPath = `${req.url}/submit`;
+    const submitPath = "submit";
+
     const {
         title,
         difficulty,
@@ -29,40 +35,27 @@ const ProblemInfo = ({ data }: Props) => {
                     <label htmlFor="difficulty">
                         <h3>Difficulty</h3>
                     </label>
-                    <div
-                        style={{
-                            display: "flex",
-                            gap: "5px",
-                        }}
-                    >
-                        <span>easy</span>
-                        <span>medium</span>
-                        <span>hard</span>
+                    <div className="tag-container">
+                        <Tag selected={difficulty === "easy"}>easy</Tag>
+                        <Tag selected={difficulty === "medium"}>medium</Tag>
+                        <Tag selected={difficulty === "hard"}>hard</Tag>
                     </div>
 
                     <label htmlFor="tags">
                         <h3>Tags</h3>
                     </label>
-                    <div
-                        style={{
-                            display: "flex",
-                            gap: "5px",
-                            flexWrap: "wrap",
-                        }}
-                    >
+                    <div className="tag-container">
                         {tags.map((tag) => (
-                            <div key={tag} className="tag">
-                                {tag}
-                            </div>
+                            <Tag key={tag}>{tag}</Tag>
                         ))}
                     </div>
                 </div>
 
                 {/* submit */}
                 <div className="box border" style={{ gridColumn: "span 2" }}>
-                    <button className="btn btn-primary border">
+                    <ButtonRedirect redirectUrl={submitPath} variant="primary">
                         Submit Solution
-                    </button>
+                    </ButtonRedirect>
                 </div>
 
                 {/* description */}
@@ -73,9 +66,13 @@ const ProblemInfo = ({ data }: Props) => {
                     <label htmlFor="description">
                         <h3>Problem Description</h3>
                     </label>
-                    <textarea readOnly name="description" id="description">
-                        {description}
-                    </textarea>
+                    {/* <TextArea id="description" value={description} readOnly /> */}
+                    <textarea
+                        readOnly
+                        name="description"
+                        id="description"
+                        value={description}
+                    />
                 </div>
 
                 {/* input output example */}
@@ -92,9 +89,8 @@ const ProblemInfo = ({ data }: Props) => {
                             padding: "5px",
                             height: "fit-content",
                         }}
-                    >
-                        {example_input}
-                    </textarea>
+                        value={example_input}
+                    />
 
                     <label htmlFor="output-example">
                         <h3>Output Example</h3>
@@ -108,9 +104,8 @@ const ProblemInfo = ({ data }: Props) => {
                             padding: "5px",
                             height: "fit-content",
                         }}
-                    >
-                        {example_output}
-                    </textarea>
+                        value={example_output}
+                    />
                 </div>
             </div>
         </div>

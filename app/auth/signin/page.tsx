@@ -1,9 +1,10 @@
-import SignInFields from "@/components/Forms/SignInFields";
+
+import SignInForm from "@/components/Forms/SignInForm";
 
 const SignOutPage = () => {
     return (
         <main className="form-page">
-            <SignInFields />
+            <SignInForm />
         </main>
     );
 };

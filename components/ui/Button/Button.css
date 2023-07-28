@@ -1,0 +1,43 @@
+.btn {
+    background: transparent;
+    align-items: center;
+    color: var(--text-color);
+
+    box-sizing: border-box;
+    padding: 5px 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: var(--bg-primary);
+}
+
+.btn-primary {
+    background: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-hover);
+}
+
+.btn-submit {
+    background: var(--variant);
+    padding: 10px 0;
+}
+
+.btn-submit:hover {
+    background: var(--variant-hover);
+}
+
+.btn-nav {
+    background: transparent;
+    border: none;
+}

@@ -1,0 +1,24 @@
+
+textarea {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+
+    resize: none;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+textarea[readonly] {
+    border: none;
+}
+
+.create-problems textarea {
+    width: 99%;
+    height: 80%;
+}
+
+.submit-solution textarea {
+    width: 100%;
+}

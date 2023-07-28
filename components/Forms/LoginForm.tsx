@@ -1,11 +1,15 @@
 "use client";
+import "./Forms.css";
 
 import { FormEvent, useState } from "react";
 import loginService from "@/services/login";
-import sessionService from "@/services/session";
+import { setToken } from "@/services/session";
+
 import { Key } from "lucide-react";
 
 import { redirect } from "next/navigation";
+import Button from "../ui/Button/Button";
+import Input from "../ui/Input/Input";
 
 const LoginForm = () => {
     const [username, setUsername] = useState<string>("");
@@ -19,7 +23,7 @@ const LoginForm = () => {
                 username,
                 password,
             });
-            sessionService.setToken(access_token);
+            setToken(access_token);
 
             setTimeout(() => redirect("/"), 3000);
         } catch (e) {
@@ -40,26 +44,22 @@ const LoginForm = () => {
             )}
 
             <label htmlFor="username"> Username </label>
-            <input
-                type="text"
+            <Input
                 id="username"
                 value={username}
-                onChange={({ target }) => setUsername(target.value)}
+                handleChange={setUsername}
                 required
             />
 
             <label htmlFor="password"> password </label>
-            <input
-                type="password"
+            <Input
                 id="password"
                 value={password}
-                onChange={({ target }) => setPassword(target.value)}
+                handleChange={setPassword}
                 required
             />
 
-            <button type="submit" className="btn btn-submit border">
-                Log In
-            </button>
+            <Button variant="submit">Log In</Button>
         </form>
     );
 };

@@ -1,0 +1,8 @@
+
+.select {
+    color: var(--text-color);
+    background: var(--bg-secondary);
+
+    box-sizing: border-box;
+    padding: 8px;
+}

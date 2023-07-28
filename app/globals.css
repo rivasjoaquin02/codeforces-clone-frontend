@@ -26,42 +26,9 @@ a {
     text-decoration: none;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 15px;
-    padding: 20px;
-
-    height: fit-content;
-    width: 300px;
-
-    background: var(--bg-secondary);
-    color: var(--text-color);
-
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    margin: auto auto;
-}
-
 .form-page {
     display: flex;
     height: 100vh;
-}
-
-input {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    height: 32px;
-    color: var(--text-color);
-}
-
-textarea {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    color: var(--text-color);
 }
 
 .box {
@@ -73,39 +40,6 @@ textarea {
 .border {
     border: 1px solid var(--border-color);
     border-radius: 8px;
-}
-
-/* Buttons */
-
-.btn {
-    background: transparent;
-    align-items: center;
-    color: var(--text-color);
-
-    box-sizing: border-box;
-    padding: 5px 16px;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn:hover {
-    background: var(--bg-primary);
-}
-
-.btn-primary {
-    background: var(--primary);
-}
-
-.btn-primary:hover {
-    background: var(--primary-hover);
-}
-
-.btn-submit {
-    background: var(--variant);
-    padding: 10px 0;
-}
-
-.btn-submit:hover {
-    background: var(--variant-hover);
 }
 
 /* NavBar */
@@ -178,7 +112,7 @@ textarea {
     flex-direction: column;
     gap: 15px;
     font-size: 12px;
-    padding-top: 50px;
+    padding: 50px 0;
 
     max-width: 900px;
     margin: auto auto;
@@ -214,14 +148,6 @@ textarea {
 }
 
 .__problems-search-bar-filter select {
-    color: var(--text-color);
-    background: var(--bg-primary);
-
-    height: 100%;
-
-    box-sizing: border-box;
-    padding: 0 10px;
-
     border: 1px solid var(--border-color);
     border-radius: 0 8px 8px 0;
 }
@@ -244,15 +170,6 @@ textarea {
     text-align: center;
 }
 
-.__table_id {
-    width: 5px;
-    padding: 20px 10px;
-}
-
-.__table_title_tags {
-    padding: 0 15px;
-}
-
 /* Create Problems Page */
 
 .problem-info {
@@ -267,67 +184,16 @@ textarea {
     gap: 15px;
 }
 
-.create-problems select {
-    color: var(--text-color);
-    background: var(--bg-secondary);
-
-    box-sizing: border-box;
-    padding: 10px;
-
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-}
-
-.create-problems textarea {
-    width: 99%;
-    height: 80%;
-}
-
-.tag {
-    display: block;
-    background: var(--bg-primary);
-    width: fit-content;
-
-    box-sizing: border-box;
-    padding: 5px 10px;
-
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-}
-
-textarea {
-    resize: none;
-}
-
-textarea[readonly] {
-    border: none;
-    resize: none;
-}
-
-.tag {
-    display: block;
-    background: var(--bg-primary);
-    width: fit-content;
-
-    box-sizing: border-box;
-    padding: 5px 10px;
-
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-}
-
-textarea {
-    resize: none;
-}
-
-textarea[readonly] {
-    border: none;
-    resize: none;
-}
-
 .error-message {
     background: var(--bg-error);
 
     display: flex;
     gap: 10px;
+}
+
+.submit-solution {
+    display: grid;
+    grid-template-rows: repeat(5, 1f);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }

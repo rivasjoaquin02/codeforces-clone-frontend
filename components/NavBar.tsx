@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Code2, Home, BookMarked, Bot } from "lucide-react";
+import ButtonRedirect from "./ui/Button/ButtonRedirect";
 
 const WebSiteName = "Codeforces Clone";
 const routes = [
@@ -27,14 +28,14 @@ const NavBar = () => {
                 </div>
                 <nav className="__navbar-nav">
                     {routes.map((route) => (
-                        <Link
+                        <ButtonRedirect
                             key={route.value}
-                            id={route.value}
-                            href={route.route}
+                            redirectUrl={route.route}
+                            variant="nav"
                         >
                             <route.icon size={20} />
                             {route.label}
-                        </Link>
+                        </ButtonRedirect>
                     ))}
                 </nav>
                 <div className="avatar">
