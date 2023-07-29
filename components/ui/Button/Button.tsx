@@ -5,14 +5,16 @@ interface Props {
     handleClick?: () => void;
     variant?: "primary" | "secondary" | "submit" | "nav";
     children: ReactNode;
+    disabled?: boolean
 }
 
-const Button = ({ handleClick, variant, children }: Props) => (
+const Button = ({ handleClick, variant, children, disabled }: Props) => (
     <button
         type={`${variant === "submit" ? "submit" : "button"}`}
         className={`btn btn-${variant} border`}
         // className={`${styles.btn} ${styles[`btn-${variant}`]} border`}
         onClick={handleClick}
+        disabled={disabled}
     >
         {children}
     </button>

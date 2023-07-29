@@ -12,7 +12,7 @@ interface Props {
 const ButtonRedirect = ({ redirectUrl, handleClick, variant, children }: Props) => (
     <Link
         href={redirectUrl}
-        type={`${variant === "submit" ? "submit" : "button"}`}
+        type={`${variant === "submit" ? variant : "button"}`}
         className={`btn ${variant ? `btn-${variant}` : ""} border`}
         onClick={handleClick}
     >
