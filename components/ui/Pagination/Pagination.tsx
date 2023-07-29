@@ -23,7 +23,9 @@ const Pagination = ({ hasPrevPage, hasNextPage }: Props) => {
                 disabled={!hasPrevPage}
                 handleClick={() => {
                     router.push(
-                        `problems/?page=${Number(page) - 1}&per_page=${per_page}`
+                        `problems/?page=${
+                            Number(page) - 1
+                        }&per_page=${per_page}`
                     );
                 }}
             >
@@ -31,7 +33,7 @@ const Pagination = ({ hasPrevPage, hasNextPage }: Props) => {
                 Prev
             </Button>
 
-            <div className="pagination-page glass">
+            <div className="pagination-page glass border">
                 <h3>
                     {page} / {Math.ceil(10 / Number(per_page))}
                 </h3>
@@ -41,7 +43,9 @@ const Pagination = ({ hasPrevPage, hasNextPage }: Props) => {
                 disabled={!hasNextPage}
                 handleClick={() => {
                     router.push(
-                        `problems/?page=${Number(page) + 1}&per_page=${per_page}`
+                        `problems/?page=${
+                            Number(page) + 1
+                        }&per_page=${per_page}`
                     );
                 }}
             >

@@ -14,9 +14,6 @@ interface Props {
 
 const ProblemsList = ({ problems, hasPrevPage, hasNextPage }: Props) => {
 
-    console.log(problems);
-    
-
     const [filteredProblems, setFilteredProblems] =
         useState<Array<ProblemDB>>(problems);
 
@@ -40,7 +37,7 @@ const ProblemsList = ({ problems, hasPrevPage, hasNextPage }: Props) => {
         setFilteredProblems(
             problems.filter((problem) => isMatch(problem, title, difficulty))
         );
-        console.log(filteredProblems);
+        // console.log(filteredProblems);
     };
 
     return (
