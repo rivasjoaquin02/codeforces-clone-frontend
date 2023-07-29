@@ -8,7 +8,7 @@ interface Props {
 
 const BoxSubmitSolution = ({ style }: Props) => (
     <BoxContainer style={style} >
-        <ButtonRedirect redirectUrl="submit" variant="primary">
+        <ButtonRedirect redirectUrl="submit" variant="secondary">
             Submit Solution
         </ButtonRedirect>
     </BoxContainer>

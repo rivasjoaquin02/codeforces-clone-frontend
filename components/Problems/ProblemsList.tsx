@@ -1,17 +1,17 @@
 "use client";
 
-import { Problem } from "@/types";
-import ProblemsFilterBar from "@/components/Problems/ProblemsFilterBar";
-import ProblemsTable from "./ProblemsTable";
+import { Problem, ProblemDB } from "@/types";
+import Problems from "./Problems";
+
 import { useState } from "react";
 
 interface Props {
-    problems: Array<Problem>;
+    problems: Array<ProblemDB>;
 }
 
 const ProblemsList = ({ problems }: Props) => {
     const [filteredProblems, setFilteredProblems] =
-        useState<Array<Problem>>(problems);
+        useState<Array<ProblemDB>>(problems);
 
     const isMatch = (
         problem: Problem,
@@ -38,8 +38,8 @@ const ProblemsList = ({ problems }: Props) => {
 
     return (
         <>
-            <ProblemsFilterBar handleChange={filterProblems} />
-            <ProblemsTable problems={filteredProblems} />
+            <Problems.SearchBar handleChange={filterProblems} />
+            <Problems.Table problems={filteredProblems} />
         </>
     );
 };

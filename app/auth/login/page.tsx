@@ -35,7 +35,7 @@ const LoginPage = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="glass">
             {errorMessage && (
                 <span className="error-message box border">
                     <Key size={20} />

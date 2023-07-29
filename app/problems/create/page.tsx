@@ -4,7 +4,7 @@ import { useReducer } from "react";
 import { createProblem } from "@/services/problems";
 import Input from "@/components/ui/Input/Input";
 import Select from "@/components/ui/Select/Select";
-import { DIFFICULTIES } from "@/components/Problems/ProblemsFilterBar";
+import { DIFFICULTIES } from "@/components/Problems/SearchBar/SearchBar";
 import Problems from "@/components/Problems/Problems";
 import BoxContainer from "@/components/BoxContainer";
 import Label from "@/components/ui/Label/Label";
