@@ -1,27 +1,49 @@
-import { Problem } from "@/types";
 import ProblemsList from "@/components/Problems/ProblemsList";
+import { getProblems } from "@/services/problems";
+import { ProblemDB } from "@/types";
 
-const API_URL = process.env.API_URL;
-
-const getProblems = async () => {
-    const response = await fetch(`${API_URL}/problems`, {
-        next: { revalidate: 10 },
-        method: "GET",
-        headers: {},
-    });
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch data");
-    }
-
-    const result = await response.json();
-    return result as Array<Problem>;
+const MOCH_PROBLEM: ProblemDB = {
+    id: "1",
+    authorId: "1",
+    title: "Two Sum",
+    difficulty: "easy",
+    description:
+        "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+    example_input: "[2,7,11,15]",
+    example_output: "[0,1]",
+    tags: ["array", "hash table"],
 };
 
-const ProblemsPage = async () => {
-    const problems = await getProblems();
+const ProblemsPage = async ({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+    const page = searchParams["page"] ?? "1";
+    const per_page = searchParams["per_page"] ?? "10";
 
-    return <ProblemsList problems={problems} />;
+    const start = (Number(page) - 1) * Number(per_page);
+    const end = start + Number(per_page);
+
+    // const problems = await getProblems();
+    const problems: Array<ProblemDB> = Array(30)
+        .fill({ ...MOCH_PROBLEM })
+        .map((v, idx) => ({
+            ...v,
+            id: idx.toString(),
+        }));
+    const entries = problems.slice(start, end);
+
+    console.log(problems);
+    // console.log(page, per_page, start, end);
+
+    return (
+        <ProblemsList
+            problems={entries}
+            hasPrevPage={start > 0}
+            hasNextPage={end < problems.length}
+        />
+    );
 };
 
 export default ProblemsPage;

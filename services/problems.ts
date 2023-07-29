@@ -1,5 +1,7 @@
 import axios from "axios";
 import { getToken } from "@/services/session";
+import { ProblemDB } from "@/types";
+import { AccessToken } from "./login";
 
 interface Problem {
     title: string;
@@ -12,7 +14,7 @@ interface Problem {
 
 const baseUrl = `http://127.0.0.1:8000/problems/`;
 
-export const createProblem = async (problem: Problem) => {
+export const createProblem = async (problem: Problem): Promise<AccessToken> => {
     if (
         !problem.title ||
         !problem.difficulty ||
@@ -34,11 +36,14 @@ export const createProblem = async (problem: Problem) => {
     return data;
 };
 
-export const getProblemById = async (id: string) => {
-    if (!id) throw new Error("Problem ID is missing");
+export const getProblems = async (): Promise<Array<ProblemDB>> => {
+    const response = await axios.get(baseUrl);
+    const data = response.data as Array<ProblemDB>;
+    return data;
+};
 
-    console.log(id);
-    
+export const getProblemById = async (id: string): Promise<ProblemDB> => {
+    if (!id) throw new Error("Problem ID is missing");
     const { data } = await axios.get(`${baseUrl}/${id}`);
     return data;
 };
