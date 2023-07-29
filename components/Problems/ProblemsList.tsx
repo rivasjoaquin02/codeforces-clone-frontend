@@ -1,17 +1,24 @@
 "use client";
 
-import { Problem } from "@/types";
+import { Problem, ProblemDB } from "@/types";
 import ProblemsFilterBar from "@/components/Problems/ProblemsFilterBar";
 import ProblemsTable from "./ProblemsTable";
 import { useState } from "react";
+import Pagination from "../ui/Pagination/Pagination";
 
 interface Props {
-    problems: Array<Problem>;
+    problems: Array<ProblemDB>;
+    hasPrevPage: boolean;
+    hasNextPage: boolean;
 }
 
-const ProblemsList = ({ problems }: Props) => {
+const ProblemsList = ({ problems, hasPrevPage, hasNextPage }: Props) => {
+
+    console.log(problems);
+    
+
     const [filteredProblems, setFilteredProblems] =
-        useState<Array<Problem>>(problems);
+        useState<Array<ProblemDB>>(problems);
 
     const isMatch = (
         problem: Problem,
@@ -40,6 +47,7 @@ const ProblemsList = ({ problems }: Props) => {
         <>
             <ProblemsFilterBar handleChange={filterProblems} />
             <ProblemsTable problems={filteredProblems} />
+            <Pagination hasPrevPage={hasPrevPage} hasNextPage={hasNextPage} />
         </>
     );
 };
