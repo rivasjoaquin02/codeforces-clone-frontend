@@ -1,0 +1,30 @@
+.searchbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchbar a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.searchbar-filter {
+    display: flex;
+    gap: 4px;
+}
+
+.searchbar-filter div {
+    display: flex;
+    gap: 0px;
+}
+
+.searchbar-filter input {
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+}
+
+.searchbar-filter select {
+    border: 1px solid var(--border-color);
+    border-radius: 0 8px 8px 0;
+}

@@ -20,9 +20,9 @@
 }
 
 .tag-selected {
-    background: var(--variant);
+    background: var(--clr-3);
 }
 
 .tag-selected:hover {
-    background: var(--variant);
+    background: var(--clr-3);
 }

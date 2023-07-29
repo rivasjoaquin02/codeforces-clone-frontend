@@ -7,7 +7,7 @@ interface Props {
 
 const BoxContainer = ({ children, style }: Props) => {
     return (
-        <div className="box-container box border" style={style}>
+        <div className="box-container box border glass" style={style}>
             {children}
         </div>
     );

@@ -11,7 +11,7 @@ interface Props {
 const Button = ({ handleClick, variant, children, disabled }: Props) => (
     <button
         type={`${variant === "submit" ? "submit" : "button"}`}
-        className={`btn btn-${variant} border`}
+        className={`btn ${variant ? `btn-${variant}` : ""} border`}
         // className={`${styles.btn} ${styles[`btn-${variant}`]} border`}
         onClick={handleClick}
         disabled={disabled}

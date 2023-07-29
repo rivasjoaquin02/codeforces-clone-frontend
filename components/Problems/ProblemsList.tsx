@@ -1,8 +1,8 @@
 "use client";
 
 import { Problem, ProblemDB } from "@/types";
-import ProblemsFilterBar from "@/components/Problems/ProblemsFilterBar";
-import ProblemsTable from "./ProblemsTable";
+import Problems from "./Problems";
+
 import { useState } from "react";
 import Pagination from "../ui/Pagination/Pagination";
 
@@ -45,8 +45,8 @@ const ProblemsList = ({ problems, hasPrevPage, hasNextPage }: Props) => {
 
     return (
         <>
-            <ProblemsFilterBar handleChange={filterProblems} />
-            <ProblemsTable problems={filteredProblems} />
+            <Problems.SearchBar handleChange={filterProblems} />
+            <Problems.Table problems={filteredProblems} />
             <Pagination hasPrevPage={hasPrevPage} hasNextPage={hasNextPage} />
         </>
     );
