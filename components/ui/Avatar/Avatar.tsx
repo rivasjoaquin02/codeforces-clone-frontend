@@ -21,8 +21,8 @@ const Avatar = ({ alt, userId, width = 34, height = 34 }: Props) => {
         <div className="avatar" style={{ height, width }}>
             <Image
                 // loader={imageLoader}
-                alt={alt ? alt : "Avatar"}
-                src={userId ? userId : "/images/default-avatar.jpg"}
+                alt={alt ?? "Avatar"}
+                src={userId ?? "/images/default-avatar.jpg"}
                 width={width}
                 height={height}
                 // placeholder="blur"
