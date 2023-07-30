@@ -43,21 +43,19 @@ const ProblemsPage = async ({
     const start = (Number(page) - 1) * Number(per_page);
     const end = start + Number(per_page);
 
-    // const problems = await getProblems();
-    const problems: Array<ProblemDB> = Array(30)
-        .fill({ ...MOCH_PROBLEM })
-        .map((v, idx) => ({
-            ...v,
-            id: idx.toString(),
-        }));
+    const problems = await getProblems();
+    // const problems: Array<ProblemDB> = Array(30)
+    //     .fill({ ...MOCH_PROBLEM })
+    //     .map((v, idx) => ({
+    //         ...v,
+    //         id: idx.toString(),
+    //     }));
     const entries = problems
         .slice(start, end)
         .filter((problem) =>
             isMatch(problem, filterByTitle[0], filterByDifficulty[0])
         );
 
-    // console.log(problems);
-    // console.log(page, per_page, start, end);
 
     return (
         <>

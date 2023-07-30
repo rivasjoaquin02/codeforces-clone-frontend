@@ -3,7 +3,7 @@ import "@/components/Forms/Forms.css";
 
 import { FormEvent, useState } from "react";
 import loginService from "@/services/login";
-import { setToken } from "@/services/session";
+import { storeSession } from "@/services/session";
 
 import { Key } from "lucide-react";
 
@@ -19,11 +19,11 @@ const LoginPage = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const access_token = await loginService.login({
+            const session = await loginService.login({
                 username,
                 password,
             });
-            setToken(access_token);
+            storeSession(session);
 
             setTimeout(() => redirect("/"), 3000);
         } catch (e) {
@@ -54,6 +54,7 @@ const LoginPage = () => {
             <label htmlFor="password"> password </label>
             <Input
                 id="password"
+                type="password"
                 value={password}
                 handleChange={setPassword}
                 required

@@ -1,16 +1,15 @@
-import { AccessToken } from "./login";
+import { Session } from "./login";
 
-export const setToken = (newToken: AccessToken) => {
-    window.localStorage.setItem("access_token", JSON.stringify(newToken));
+export const storeSession = (newSession: Session) => {
+    window.localStorage.setItem("session", JSON.stringify(newSession));
 };
 
-export const getToken = (): AccessToken => {
-    const accessTokenJSON = window.localStorage.getItem("access_token");
+export const getSession = (): Session => {
+    const sessionJSON = window.localStorage.getItem("session");
 
-    if (!accessTokenJSON)
-        throw new Error("There is not Token in the LocalStorage");
-
-    const access_token = JSON.parse(accessTokenJSON);
-
-    return access_token;
+    if (!sessionJSON)
+        throw new Error("There is not session in the LocalStorage");
+        
+    const session = JSON.parse(sessionJSON);
+    return session;
 };

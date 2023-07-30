@@ -7,12 +7,13 @@ interface Login {
     password: string;
 }
 
-export interface AccessToken {
+export interface Session {
+    username: string;
     access_token: string;
     token_type: string;
 }
 
-const login = async (credentials: Login): Promise<AccessToken> => {
+const login = async (credentials: Login): Promise<Session> => {
     if (!credentials) throw new Error("Theres no Credentials");
 
     const credentialsRecord: Record<string, string> = {
@@ -20,12 +21,12 @@ const login = async (credentials: Login): Promise<AccessToken> => {
         password: credentials.password,
     };
 
-    const { data: access_token } = await axios.post(
+    const { data: Session } = await axios.post(
         baseUrl,
         new URLSearchParams(credentialsRecord)
     );
 
-    return access_token;
+    return { username: credentials.username, ...Session };
 };
 
 export default { login };

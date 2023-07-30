@@ -5,7 +5,7 @@ import "@/components/Forms/Forms.css";
 import { Key } from "lucide-react";
 import { FormEvent, useState } from "react";
 import signinService from "@/services/signin";
-import { setToken } from "@/services/session";
+import { storeSession } from "@/services/session";
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
 
@@ -25,7 +25,7 @@ const SignInForm = () => {
                 email,
                 fullname,
             });
-            setToken(access_token);
+            storeSession(access_token);
         } catch (e) {
             // if (e instanceof Error) {
             //     setErrorMessage(e.message);

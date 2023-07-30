@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducer } from "react";
+import { useCallback, useReducer, useState } from "react";
 import { createProblem } from "@/services/problems";
 import Input from "@/components/ui/Input/Input";
 import Select from "@/components/ui/Select/Select";
@@ -9,29 +9,34 @@ import Problems from "@/components/Problems/Problems";
 import BoxContainer from "@/components/BoxContainer";
 import Label from "@/components/ui/Label/Label";
 import { Problem } from "@/types";
+import Button from "@/components/ui/Button/Button";
 
-const INITIAL = {
+const INITIAL: Problem = {
     title: "",
-    difficulty: "",
-    tags: [],
+    difficulty: "easy",
+    tags: [""],
     inputExample: "",
     outputExample: "",
     description: "",
 };
 
-type Action = {
-    type: string;
-    payload: {
-        label: string;
-        value: string;
-    };
-};
+type Action =
+    | {
+          type: "update_tags";
+          payload: {
+              value: string;
+          };
+      }
+    | {
+          type: "update";
+          payload: {
+              name: string;
+              value: string;
+          };
+      };
 
-const reducer = (state, action) => {
+const reducer = (state: Problem, action: Action): Problem => {
     switch (action.type) {
-        case "reset":
-            return INITIAL;
-
         case "update_tags": {
             const tags = action.payload.value.split(/,| /);
             return {
@@ -41,29 +46,23 @@ const reducer = (state, action) => {
         }
 
         case "update":
-            const { key, value } = action.payload;
+            const { name, value } = action.payload;
             return {
                 ...state,
-                [key]: value,
+                [name]: value,
             };
+        default:
+            return INITIAL;
     }
 };
 
 const CreateProblemPage = () => {
     const [state, dispatch] = useReducer(reducer, INITIAL);
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
-    const handleClick = async () => {
-        const problem = {
-            title,
-            description,
-            example_input: inputExample,
-            example_output: outputExample,
-            tags,
-            difficulty,
-        };
-
+    const handleClick = useCallback(async () => {
         try {
-            const response = await createProblem(problem);
+            const response = await createProblem(state);
         } catch (error) {
             if (error instanceof Error) {
                 setErrorMessage(error.message);
@@ -74,11 +73,11 @@ const CreateProblemPage = () => {
                 setErrorMessage("");
             }, 5000);
         }
-    };
+    }, [state]);
 
-    const createHandleChange = (key: string) => {
-        const handleChange = (key: string, value: string) => {
-            key === "tags"
+    const createHandleChange = useCallback((name: string) => {
+        const handleChange = (name: string, value: string) => {
+            name === "tags"
                 ? dispatch({
                       type: "update_tags",
                       payload: { value },
@@ -86,18 +85,16 @@ const CreateProblemPage = () => {
                 : dispatch({
                       type: "update",
                       payload: {
-                          key,
+                          name,
                           value,
                       },
                   });
         };
 
         return (value: string) => {
-            handleChange(key, value);
+            handleChange(name, value);
         };
-    };
-
-    // console.log(state);
+    }, []);
 
     return (
         <div className="problem-grid">
@@ -124,7 +121,11 @@ const CreateProblemPage = () => {
                 />
             </BoxContainer>
 
-            <Problems.BoxSubmitSolution style={{ gridColumn: "span 2" }} />
+            <BoxContainer style={{ gridColumn: "span 2" }}>
+                <Button handleClick={handleClick} variant="primary">
+                    Create Problem
+                </Button>
+            </BoxContainer>
 
             <Problems.BoxDescription
                 description={state.description}

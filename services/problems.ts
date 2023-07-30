@@ -1,31 +1,23 @@
 import axios from "axios";
-import { getToken } from "@/services/session";
-import { ProblemDB } from "@/types";
-import { AccessToken } from "./login";
+import { getSession } from "@/services/session";
+import { Problem, ProblemDB } from "@/types";
 
-interface Problem {
-    title: string;
-    description: string;
-    example_input: string;
-    example_output: string;
-    tags: Array<string>;
-    difficulty: string;
-}
+const baseUrl = `http://127.0.0.1:8000/problems`;
 
-const baseUrl = `http://127.0.0.1:8000/problems/`;
-
-export const createProblem = async (problem: Problem): Promise<AccessToken> => {
+export const createProblem = async (problem: Problem) => {
     if (
         !problem.title ||
         !problem.difficulty ||
         !problem.tags ||
-        !problem.example_input ||
-        !problem.example_output ||
+        !problem.inputExample ||
+        !problem.outputExample ||
         !problem.description
     )
         throw new Error("Field is missing");
 
-    const { access_token, token_type } = getToken();
+    const { access_token, token_type } = getSession();
+
+    if (!access_token) throw new Error("Access token is missing");
 
     const { data } = await axios.post(`${baseUrl}/create`, problem, {
         headers: {
@@ -33,6 +25,9 @@ export const createProblem = async (problem: Problem): Promise<AccessToken> => {
             Authorization: `${token_type} ${access_token}`,
         },
     });
+
+    if (!data) throw new Error("Problem creation failed");
+
     return data;
 };
 

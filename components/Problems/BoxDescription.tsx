@@ -12,7 +12,7 @@ interface Props {
 const BoxDescription = ({ description, handleChange, style }: Props) => {
     return (
         <BoxContainer style={style} >
-            <Label id="input-example">Problem Description</Label>
+            <Label id="description">Problem Description</Label>
             <TextArea
                 id="description"
                 value={description}
