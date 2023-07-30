@@ -6,8 +6,6 @@ interface Props {
 }
 
 const ProblemInfo = ({ data }: Props) => {
-    // const submitPath = `${req.url}/submit`;
-
     const {
         title,
         difficulty,

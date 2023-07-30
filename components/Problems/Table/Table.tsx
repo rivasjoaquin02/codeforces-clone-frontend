@@ -1,5 +1,3 @@
-"use client";
-
 import "./Table.css";
 import { ProblemDB } from "@/types";
 import { ArrowDownUp, User } from "lucide-react";
@@ -69,11 +67,12 @@ const Table = ({ problems }: Props) => {
                             ))}
                         </td>
                         <td className="table-difficulty">
-                            {problem.difficulty}
+                            <Tag difficulty={problem.difficulty}>
+                                {problem.difficulty}
+                            </Tag>
                         </td>
                         <td className="table-avatar">
                             <Avatar />
-                            {/* <Avatar userId={problem.authorId} />     */}
                         </td>
                     </tr>
                 ))}

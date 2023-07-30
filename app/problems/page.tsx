@@ -1,6 +1,7 @@
-import ProblemsList from "@/components/Problems/ProblemsList";
-import { getProblems } from "@/services/problems";
 import { ProblemDB } from "@/types";
+import Problems from "@/components/Problems/Problems";
+import Pagination from "@/components/ui/Pagination/Pagination";
+import { getProblems } from "@/services/problems";
 
 const MOCH_PROBLEM: ProblemDB = {
     id: "1",
@@ -14,6 +15,20 @@ const MOCH_PROBLEM: ProblemDB = {
     tags: ["array", "hash table"],
 };
 
+const isMatch = (
+    problem: ProblemDB,
+    title?: string,
+    difficulty?: string
+): boolean => {
+    let match = true;
+    if (problem) {
+        if (title)
+            match = problem.title.toLowerCase().includes(title.toLowerCase());
+        if (difficulty) match = problem.difficulty === difficulty;
+    }
+    return match;
+};
+
 const ProblemsPage = async ({
     searchParams,
 }: {
@@ -21,6 +36,9 @@ const ProblemsPage = async ({
 }) => {
     const page = searchParams["page"] ?? "1";
     const per_page = searchParams["per_page"] ?? "10";
+
+    const filterByTitle = searchParams["title"] ?? "";
+    const filterByDifficulty = searchParams["difficulty"] ?? "";
 
     const start = (Number(page) - 1) * Number(per_page);
     const end = start + Number(per_page);
@@ -32,17 +50,24 @@ const ProblemsPage = async ({
             ...v,
             id: idx.toString(),
         }));
-    const entries = problems.slice(start, end);
+    const entries = problems
+        .slice(start, end)
+        .filter((problem) =>
+            isMatch(problem, filterByTitle[0], filterByDifficulty[0])
+        );
 
-    console.log(problems);
+    // console.log(problems);
     // console.log(page, per_page, start, end);
 
     return (
-        <ProblemsList
-            problems={entries}
-            hasPrevPage={start > 0}
-            hasNextPage={end < problems.length}
-        />
+        <>
+            <Problems.SearchBar />
+            <Problems.Table problems={entries} />
+            <Pagination
+                hasPrevPage={start > 0}
+                hasNextPage={end < problems.length}
+            />
+        </>
     );
 };
 
