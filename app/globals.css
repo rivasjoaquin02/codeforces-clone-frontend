@@ -10,6 +10,7 @@
 
     --text-color: rgb(240, 246, 252, 0.8);
     --border-color: rgba(255, 255, 255, 0.05);
+    --border-color-hover: rgba(255, 255, 255, 0.2);
 }
 
 body {

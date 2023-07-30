@@ -4,8 +4,9 @@
     overflow: hidden;
     transition: border 300ms ease-in-out;
     position: relative;
+    cursor: pointer;
 }
 
 .avatar:hover {
-    border: 2px solid var(--clr-1-hover);
+    border: 2px solid var(--border-color-hover);
 }

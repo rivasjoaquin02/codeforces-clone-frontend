@@ -3,6 +3,10 @@ import "./NavBar.css";
 import { BookMarked, Bot, Home } from "lucide-react";
 import ButtonRedirect from "../Button/ButtonRedirect";
 import Avatar from "../Avatar/Avatar";
+import DropDown from "../DropDown/DropDown";
+import DropDownItem from "../DropDown/DropDownItem";
+
+import { KeyRound, KeySquare } from "lucide-react";
 
 const WEBSITE_TITLE = "code";
 const routes = [
@@ -37,7 +41,26 @@ const NavBar = () => {
                         ))}
                     </ul>
                 </nav>
-                <Avatar />
+                <DropDown icon={<Avatar />}>
+                    <DropDownItem>
+                        <ButtonRedirect variant="nav" redirectUrl="/login">
+                            <KeyRound size={24} fill="var(--clr-3)" />
+                            Login
+                        </ButtonRedirect>
+                    </DropDownItem>
+                    <DropDownItem>
+                        <ButtonRedirect variant="nav" redirectUrl="/signin">
+                            <KeySquare size={24} fill="var(--clr-3)" />
+                            Signin
+                        </ButtonRedirect>
+                    </DropDownItem>
+
+                    <DropDownItem>
+                        <ButtonRedirect variant="nav" redirectUrl="/login">
+                            Logout
+                        </ButtonRedirect>
+                    </DropDownItem>
+                </DropDown>
             </div>
         </div>
     );
