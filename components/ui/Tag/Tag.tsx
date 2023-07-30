@@ -2,13 +2,14 @@ import { ReactNode } from "react";
 
 import "./Tag.css";
 
-interface TagProps {
-    selected?: boolean;
+type Props = {
     children: ReactNode;
-}
+    difficulty?: "easy" | "medium" | "hard";
+};
 
-const Tag = ({ selected, children }: TagProps) => (
-    <div className={`tag tag-${selected && "selected"}`}>{children}</div>
+const Tag = ({ difficulty, children }: Props) => (
+    <div className={`tag ${difficulty ? `tag-${difficulty}` : ""}`}>
+        {children}
+    </div>
 );
-
 export default Tag;

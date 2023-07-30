@@ -1,7 +1,17 @@
+:root {
+    --clr-easy: rgb(92, 184, 92, 0.8);
+    --clr-easy-hover: rgb(92, 184, 92, 1);
+    --clr-medium: rgb(240, 173, 78, 0.8);
+    --clr-medium-hover: rgb(240, 173, 78);
+    --clr-hard: rgb(217, 83, 79, 0.8);
+    --clr-hard-hover: rgb(217, 83, 79);
+}
+
 .tag-container {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    align-items: center;
 }
 
 .tag {
@@ -13,16 +23,29 @@
 
     border: 1px solid var(--border-color);
     border-radius: 20px;
+    cursor: pointer;
 }
 
-.tag:hover {
-    background: var(--bg-secondary);
+.tag-easy {
+    background: var(--clr-easy);
 }
 
-.tag-selected {
-    background: var(--clr-3);
+.tag-easy:hover {
+    background: var(--clr-easy-hover);
 }
 
-.tag-selected:hover {
-    background: var(--clr-3);
+.tag-medium {
+    background: var(--clr-medium);
+}
+
+.tag-medium:hover {
+    background: var(--clr-medium-hover);
+}
+
+.tag-hard {
+    background: var(--clr-hard);
+}
+
+.tag-hard:hover {
+    background: var(--clr-hard-hover);
 }
