@@ -12,6 +12,4 @@ export interface ProblemDB extends Problem {
     id: string;
 }
 
-export type Result =
-    | [data: ProblemDB, error: null]
-    | [data: null, error: string];
+export type Result<TData> = { success: true; data: TData } | { success: false; error: string };
