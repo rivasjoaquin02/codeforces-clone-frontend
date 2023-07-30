@@ -6,7 +6,7 @@ export interface Session {
     token_type: string;
 }
 
-const isSession = (obj: any): obj is Session => {
+export const isSession = (obj: any): obj is Session => {
     return (
         obj &&
         typeof obj.username === "string" &&

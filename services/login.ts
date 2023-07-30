@@ -7,11 +7,7 @@ interface Login {
     password: string;
 }
 
-export interface Session {
-    username: string;
-    access_token: string;
-    token_type: string;
-}
+
 
 const login = async (credentials: Login): Promise<Session> => {
     if (!credentials) throw new Error("Theres no Credentials");
