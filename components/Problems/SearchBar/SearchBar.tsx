@@ -9,6 +9,7 @@ import Select from "../../ui/Select/Select";
 import ButtonRedirect from "../../ui/Button/ButtonRedirect";
 
 import { useRouter } from "next/navigation";
+import Tag from "@/components/ui/Tag/Tag";
 
 export const DIFFICULTIES = [
     { value: "easy", label: "Easy" },
@@ -16,7 +17,13 @@ export const DIFFICULTIES = [
     { value: "hard", label: "Hard" },
 ];
 
-const SearchBar = () => {
+const SearchBar = ({
+    datalist,
+    tags,
+}: {
+    datalist: Array<string>;
+    tags?: Array<string>;
+}) => {
     const router = useRouter();
     const [title, setTitle] = useState<string>("");
     const [difficulty, setDifficulty] = useState<string>("");
@@ -25,7 +32,11 @@ const SearchBar = () => {
         <div className="searchbar box border glass">
             <div className="searchbar-filter">
                 <div>
-                    <Input value={title} handleChange={setTitle} />
+                    <Input
+                        value={title}
+                        handleChange={setTitle}
+                        datalist={datalist}
+                    />
                     <Select
                         title="Difficulty"
                         value={difficulty}
@@ -43,7 +54,12 @@ const SearchBar = () => {
                     <Search size={20} />
                 </Button>
             </div>
-            <ButtonRedirect redirectUrl="/problems/create" variant="primary">
+
+            <div className="tags-container-slider">
+                {tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+            </div>
+
+            <ButtonRedirect redirectUrl="/problems/create" variant="dashed">
                 <Plus size={20} />
                 create
             </ButtonRedirect>

@@ -17,8 +17,8 @@ const ProblemSolution = ({ problem }: Props) => {
         title,
         description,
         difficulty,
-        example_input: inputExample,
-        example_output: outputExample,
+        inputExample: inputExample,
+        outputExample: outputExample,
         tags,
     } = problem;
 
@@ -29,6 +29,7 @@ const ProblemSolution = ({ problem }: Props) => {
                 difficulty={difficulty}
                 tags={tags}
             />
+
             <Problems.BoxSubmitSolution />
 
             <Problems.BoxCode value={code} handleChange={setCode} />

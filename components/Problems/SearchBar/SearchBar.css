@@ -1,6 +1,9 @@
 .searchbar {
     display: flex;
     justify-content: space-between;
+    gap: 8px;
+
+    max-height: 70px;
 }
 
 .searchbar a {
@@ -12,6 +15,7 @@
 .searchbar-filter {
     display: flex;
     gap: 4px;
+    flex-grow: 2;
 }
 
 .searchbar-filter div {

@@ -1,17 +1,15 @@
-import { Problem } from "@/types";
+import { Problem } from "@/services/problem/types";
 import Problems from "./Problems";
 
-interface Props {
+const ProblemInfo = ({ data }: {
     data: Problem;
-}
-
-const ProblemInfo = ({ data }: Props) => {
+}) => {
     const {
         title,
         difficulty,
         tags,
-        example_input,
-        example_output,
+        inputExample,
+        outputExample,
         description,
     } = data;
 
@@ -32,8 +30,8 @@ const ProblemInfo = ({ data }: Props) => {
                 />
 
                 <Problems.BoxInputOutput
-                    inputExample={example_input}
-                    outputExample={example_output}
+                    inputExample={inputExample}
+                    outputExample={outputExample}
                 />
             </div>
         </div>

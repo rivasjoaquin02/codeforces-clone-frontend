@@ -1,10 +1,10 @@
 import "./Table.css";
-import { ProblemDB } from "@/types";
 import { ArrowDownUp, User } from "lucide-react";
 import Tag from "../../ui/Tag/Tag";
 
 import ButtonRedirect from "@/components/ui/Button/ButtonRedirect";
 import Avatar from "@/components/ui/Avatar/Avatar";
+import { ProblemDB } from "@/services/problem/types";
 
 const HEADERS = [
     {
@@ -36,7 +36,7 @@ interface Props {
 
 const Table = ({ problems }: Props) => {
     return (
-        <table className="border glass">
+        <table className="table border glass">
             <thead>
                 <tr>
                     {HEADERS.map((header) => (
@@ -61,7 +61,7 @@ const Table = ({ problems }: Props) => {
                                 {problem.title}
                             </ButtonRedirect>
                         </td>
-                        <td className="tag-container">
+                        <td className="table-tags">
                             {problem.tags.map((tag) => (
                                 <Tag key={tag}> {tag} </Tag>
                             ))}

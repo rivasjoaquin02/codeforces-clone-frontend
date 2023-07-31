@@ -3,12 +3,11 @@
 import { CSSProperties, useState } from "react";
 import BoxContainer from "../BoxContainer";
 import Label from "../ui/Label/Label";
-import TextArea from "../ui/TextArea/TextArea";
 import Select from "../ui/Select/Select";
 
 interface Props {
     value: string;
-    handleChange?: (value: string) => void;
+    handleChange: (value: string) => void;
     style?: CSSProperties;
 }
 
@@ -30,19 +29,19 @@ const BoxCode = ({ value, handleChange, style }: Props) => {
         <BoxContainer style={style}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Label id="input-example">Solution</Label>
-
                 <Select
                     value={lang}
                     handleChange={setLang}
                     options={LANGUAGES}
                 />
             </div>
-            <TextArea
-                id="description"
-                value={value}
-                handleChange={handleChange}
-                readOnly={!handleChange}
-            />
+            <div>
+                <textarea
+                    value={value}
+                    className="textarea textarea-code"
+                    onChange={(e) => handleChange(e.target.value)}
+                />
+            </div>
         </BoxContainer>
     );
 };

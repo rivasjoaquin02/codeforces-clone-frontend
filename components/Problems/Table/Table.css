@@ -1,29 +1,48 @@
-table {
-    padding: 10px;
-    border-spacing: 0;
-    width: 100%;
-    text-align: center;
+.table-container {
+    display: flex;
+    gap: 10px;
 }
 
-table th {
+.table {
+    padding: 10px;
+    border-spacing: 0;
+    width: 80%;
+    text-align: center;
+    grid-column: span 2;
+}
+
+.table-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+    margin-right: 10px;
+}
+
+.table th {
     background-color: var(--clr-2);
     font-size: 0.9rem;
 }
 
-table tr {
+.table tr {
     height: 60px;
     margin: 10px;
 }
 
-table tbody tr:nth-child(even) {
+.table tbody tr:nth-child(even) {
     background-color: var(--clr-2);
     border-radius: 8px;
 }
 
-table td {
+.table td {
     padding: 0;
 }
 
+.table-tags {
+    max-width: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
 .table-difficulty {
     max-width: 50px;
 }

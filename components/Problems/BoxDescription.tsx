@@ -18,6 +18,7 @@ const BoxDescription = ({ description, handleChange, style }: Props) => {
                 value={description}
                 handleChange={handleChange}
                 readOnly={!handleChange}
+                variant="primary"
             />
         </BoxContainer>
     );
