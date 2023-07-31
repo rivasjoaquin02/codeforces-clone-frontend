@@ -1,8 +1,22 @@
-
 .select {
     color: var(--text-color);
     background: var(--bg-secondary);
 
     box-sizing: border-box;
     padding: 8px;
+
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--clr-3);
+    box-shadow: 0 0 0 0.2rem rgb(168, 150, 123, 0.25);
+}
+
+.select option {
+    color: #333;
+    background: transparent;
+    padding: 10px;
 }

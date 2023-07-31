@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 interface Props {
     handleClick?: () => void;
-    variant?: "primary" | "secondary" | "submit" | "nav";
+    variant?: "primary" | "secondary" | "submit" | "nav" | "dashed";
     children: ReactNode;
     disabled?: boolean
 }

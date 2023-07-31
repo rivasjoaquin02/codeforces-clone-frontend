@@ -11,7 +11,7 @@ interface TextAreaProps {
 const Input = ({
     id,
     value,
-    variant = "primary",
+    variant,
     handleChange,
     readOnly = false,
 }: TextAreaProps) => {

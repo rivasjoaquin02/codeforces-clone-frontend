@@ -13,7 +13,7 @@ const DropDown = ({ icon, children }: Props) => {
 
     return (
         <div className="dropdown">
-            <div className="dropdown-icon" onClick={() => setOpen(!open)}>
+            <div onClick={() => setOpen(!open)}>
                 {icon}
             </div>
             <div className="dropdown-menu glass border">{open && children}</div>

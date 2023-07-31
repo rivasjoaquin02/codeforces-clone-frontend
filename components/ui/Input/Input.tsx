@@ -9,6 +9,7 @@ interface InputProps {
     variant?: "primary" | "secondary";
     handleChange: (value: string) => void; //TODO: fix this any
     required?: boolean;
+    datalist?: Array<string>;
 }
 
 const Input = ({
@@ -18,19 +19,30 @@ const Input = ({
     variant = "primary",
     handleChange,
     required = false,
+    datalist,
 }: InputProps) => (
-    <input
-        id={id}
-        type={type}
-        value={value}
-        className={`input ${
-            variant ? `input-${variant}` : ""
-        } input-${variant} border`}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            handleChange(e.target.value)
-        }
-        required={required}
-    />
+    <>
+        <input
+            id={id}
+            type={type}
+            value={value}
+            className={`input ${
+                variant ? `input-${variant}` : ""
+            } input-${variant} border`}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleChange(e.target.value)
+            }
+            required={required}
+            list="datalist"
+        />
+        {datalist && (
+            <datalist id="datalist">
+                {datalist.map((entry) => (
+                    <option key={entry} value={entry} />
+                ))}
+            </datalist>
+        )}
+    </>
 );
 
 export default Input;

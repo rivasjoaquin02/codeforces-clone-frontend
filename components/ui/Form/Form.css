@@ -1,0 +1,19 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 15px;
+    padding: 20px;
+
+    height: fit-content;
+    width: 300px;
+
+    background: var(--bg-secondary);
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    margin: auto auto;
+}

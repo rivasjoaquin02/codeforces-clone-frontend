@@ -1,0 +1,60 @@
+.acceptancebar {
+    display: flex;
+    box-sizing: border-box;
+    padding: 15px;
+    gap: 4px;
+}
+
+.porcentage-easy,
+.porcentage-medium,
+.porcentage-hard {
+    position: relative;
+    padding: 4px;
+}
+
+.porcentage-easy span,
+.porcentage-medium span,
+.porcentage-hard span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -60%);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.acceptancebar svg {
+    width: 70px;
+    height: 70px;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+
+    filter: blur(30px) brightness(1.5);
+}
+
+.acceptancebar svg:hover {
+    filter: blur(20px) brightness(1);
+}
+
+.porcentage-easy svg:first-child,
+.porcentage-medium svg:first-child,
+.porcentage-hard svg:first-child {
+    position: absolute;
+    top: 0;
+    filter: none;
+}
+
+.porcentage-easy svg {
+    stroke: #00ff00;
+}
+
+.porcentage-medium svg {
+    stroke: #ffcc00;
+}
+
+.porcentage-hard svg {
+    stroke: #ff0000;
+}
