@@ -1,8 +1,10 @@
 .acceptancebar {
     display: flex;
+    justify-content: space-between;
     box-sizing: border-box;
     padding: 15px;
     gap: 4px;
+    height: fit-content;
 }
 
 .porcentage-easy,
@@ -24,8 +26,8 @@
 }
 
 .acceptancebar svg {
-    width: 70px;
-    height: 70px;
+    width: 5rem;
+    height: 5rem;
     stroke-width: 3.5;
     stroke-linecap: round;
     transform: translate(5px, 5px);

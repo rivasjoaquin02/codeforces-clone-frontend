@@ -8,7 +8,6 @@ import Select from "../ui/Select/Select";
 interface Props {
     value: string;
     handleChange: (value: string) => void;
-    style?: CSSProperties;
 }
 
 const LANGUAGES = [
@@ -22,11 +21,11 @@ const LANGUAGES = [
     { value: "go", label: "Go" },
 ];
 
-const BoxCode = ({ value, handleChange, style }: Props) => {
+const BoxCode = ({ value, handleChange }: Props) => {
     const [lang, setLang] = useState<string>("");
 
     return (
-        <BoxContainer style={style}>
+        <BoxContainer style={{ flexGrow: 2 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Label id="input-example">Solution</Label>
                 <Select
@@ -35,7 +34,7 @@ const BoxCode = ({ value, handleChange, style }: Props) => {
                     options={LANGUAGES}
                 />
             </div>
-            <div>
+            <div style={{flexGrow: 2}}>
                 <textarea
                     value={value}
                     className="textarea textarea-code"

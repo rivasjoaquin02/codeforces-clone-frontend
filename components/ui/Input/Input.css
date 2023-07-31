@@ -5,7 +5,7 @@
     box-sizing: border-box;
     padding: 8px;
 
-    background: var(--bg-primary);
+    background: transparent;
     color: var(--text-color);
 
     border: 1.5px solid var(--border-color);
@@ -18,4 +18,12 @@
     outline: none;
     border-color: var(--clr-3);
     box-shadow: 0 0 0 0.2rem rgb(168, 150, 123, 0.25);
+}
+
+
+.input-skeleton {
+    display: block;
+    background: transparent;
+    border-radius: 5px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

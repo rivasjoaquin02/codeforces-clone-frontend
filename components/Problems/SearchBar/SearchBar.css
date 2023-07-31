@@ -2,8 +2,6 @@
     display: flex;
     justify-content: space-between;
     gap: 8px;
-
-    max-height: 70px;
 }
 
 .searchbar a {
@@ -31,4 +29,28 @@
 .searchbar-filter select {
     border: 1px solid var(--border-color);
     border-radius: 0 8px 8px 0;
+}
+
+@media (max-width: 600px) {
+    .searchbar {
+        flex-direction: column;
+    }
+
+    .searchbar-filter {
+        flex-direction: column;
+        /* gap: 4px; */
+    }
+
+    .searchbar-filter div {
+        flex-direction: column;
+    }
+
+    .searchbar-filter input {
+        border-radius: 8px 8px 0 0;
+        border-right: 1px solid var(--border-color);
+    }
+
+    .searchbar-filter select {
+        border-radius: 0 0 8px 8px;
+    }
 }

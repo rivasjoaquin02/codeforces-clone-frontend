@@ -24,7 +24,7 @@ const ProblemSolutionPage = async () => {
     const problem = await getProblem();
 
     return (
-        <div className="submit-solution-grid">
+        <div className="submit-solution">
             <ProblemSolution problem={problem} />
         </div>
     );

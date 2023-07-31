@@ -44,8 +44,8 @@ textarea[readonly] {
     resize: none;
     box-sizing: border-box;
     
-    width: 100%;
-    height: 400px;
+    /* width: 100%; */
+    height: 100%;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     resize: vertical;
 }

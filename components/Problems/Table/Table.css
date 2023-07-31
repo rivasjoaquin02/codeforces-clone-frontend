@@ -1,5 +1,6 @@
 .table-container {
     display: flex;
+    /* flex-wrap: wrap; */
     gap: 10px;
 }
 
@@ -39,14 +40,28 @@
 }
 
 .table-tags {
-    max-width: 50px;
+    max-width: 10rem;
     display: flex;
     flex-wrap: wrap;
 }
-.table-difficulty {
-    max-width: 50px;
-}
+/* .table-difficulty {
+    max-width: 10rem;
+} */
 
 .table-avatar {
     width: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    .table-container {
+        flex-direction: column;
+    }
+
+    .table-left {
+        width: 100%;
+    }
+
+    .table {
+        width: 100%;
+    }
 }

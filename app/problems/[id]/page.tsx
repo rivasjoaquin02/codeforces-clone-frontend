@@ -1,5 +1,5 @@
 import ProblemInfo from "@/components/Problems/ProblemInfo";
-import { getProblemById, getProblems } from "@/services/problem/problems";
+import { getProblemById } from "@/services/problem/problems";
 import { ProblemDB } from "@/services/problem/types";
 
 // export const generateStaticParams = async (): Promise<Array<{ id: string }> | undefined> => {

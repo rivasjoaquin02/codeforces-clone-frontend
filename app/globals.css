@@ -14,6 +14,10 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
     background: url("/bg-noise.svg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,6 +26,11 @@ body {
 
     margin: 0px;
     padding: min(5vw, 20px);
+
+    color: var(--text-color);
+    font-size: 12px;
+    max-width: min(90vw, 1020px);
+    margin: auto auto;
 }
 
 main {
@@ -29,10 +38,38 @@ main {
     flex-direction: column;
     gap: 15px;
     font-size: 12px;
+}
 
-    max-width: min(90vw, 1020px);
-    margin: auto auto;
-    color: var(--text-color);
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text-header {
+    width: 80px;
+    height: 20px;
+    margin: 0.25rem;
+    background-color: var(--clr-2);
+    border-radius: 10px;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+    width: 100px;
+    height: 10px;
+    margin: 0.25rem;
+    border-radius: 0.125rem;
+    background-color: var(--clr-2);
+    border-radius: 5px;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: var(--clr-2);
+    }
+    100% {
+        background-color: var(--clr-3);
+    }
 }
 
 a {
@@ -64,6 +101,7 @@ a {
 .box-container {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .box {
@@ -85,11 +123,17 @@ a {
     gap: 15px;
 }
 
-.submit-solution-grid {
-    display: grid;
-    grid-template-rows: repeat(3, 1f);
-    grid-template-columns: repeat(2, 1fr);
+.submit-solution {
+    display: flex;
     gap: 15px;
+}
+
+.problem-info,
+.problem-solution {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
 }
 
 @media (max-width: 768px) {
@@ -97,13 +141,18 @@ a {
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .submit-solution-grid {
-        grid-template-columns: repeat(1, 1fr);
+    .submit-solution {
+        flex-direction: column;
+    }
+
+    .problem-info,
+    .problem-solution {
+        width: 100%;
     }
 }
 
 @media (min-width: 768px) {
-    .submit-solution-grid {
+    .submit-solution {
         grid-template-columns: repeat(2, 1fr);
     }
 }
