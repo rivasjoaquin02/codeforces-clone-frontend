@@ -1,19 +1,6 @@
 import { Result } from "@/types";
-
-export interface Session {
-    username: string;
-    access_token: string;
-    token_type: string;
-}
-
-export const isSession = (obj: any): obj is Session => {
-    return (
-        obj &&
-        typeof obj.username === "string" &&
-        typeof obj.access_token === "string" &&
-        typeof obj.token_type === "string"
-    );
-};
+import { Session } from "./types";
+import { isSession } from "./validate";
 
 export const storeSession = (newSession: Session): Result<Session> => {
     if (!newSession) return { success: false, error: "Invalid Session" };
