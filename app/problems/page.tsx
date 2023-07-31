@@ -1,19 +1,9 @@
-import { ProblemDB } from "@/types";
 import Problems from "@/components/Problems/Problems";
+import AcceptanceBar from "@/components/ui/AcceptanceBars/AcceptanceBar";
+import Calendar from "@/components/ui/Calendar/Calendar";
 import Pagination from "@/components/ui/Pagination/Pagination";
-import { getProblems } from "@/services/problems";
-
-const MOCH_PROBLEM: ProblemDB = {
-    id: "1",
-    authorId: "1",
-    title: "Two Sum",
-    difficulty: "easy",
-    description:
-        "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
-    example_input: "[2,7,11,15]",
-    example_output: "[0,1]",
-    tags: ["array", "hash table"],
-};
+import { getProblems } from "@/services/problem/problems";
+import { ProblemDB } from "@/services/problem/types";
 
 const isMatch = (
     problem: ProblemDB,
@@ -29,6 +19,20 @@ const isMatch = (
     return match;
 };
 
+const TAGS = [
+    "Array",
+    "String",
+    "Tree",
+    "Graph",
+    "Dynamic Programming",
+    "Math",
+    "Greedy",
+    "Depth-first Search",
+    "Breadth-first Search",
+    "Binary Search",
+    "Hash Table",
+];
+
 const ProblemsPage = async ({
     searchParams,
 }: {
@@ -43,27 +47,32 @@ const ProblemsPage = async ({
     const start = (Number(page) - 1) * Number(per_page);
     const end = start + Number(per_page);
 
-    const problems = await getProblems();
-    // const problems: Array<ProblemDB> = Array(30)
-    //     .fill({ ...MOCH_PROBLEM })
-    //     .map((v, idx) => ({
-    //         ...v,
-    //         id: idx.toString(),
-    //     }));
-    const entries = problems
+    const problemsResult = await getProblems();
+    if (!problemsResult.success)
+        return <div>Failed to fetch problems: {problemsResult.error}</div>;
+
+    const entries = problemsResult.data
         .slice(start, end)
         .filter((problem) =>
             isMatch(problem, filterByTitle[0], filterByDifficulty[0])
         );
 
-
     return (
         <>
-            <Problems.SearchBar />
-            <Problems.Table problems={entries} />
+            <Problems.SearchBar
+                datalist={entries.map((entry) => entry.title)}
+                tags={TAGS}
+            />
+            <div className="table-container">
+                <Problems.Table problems={entries} />
+                <div className="table-left">
+                    <Calendar />
+                    <AcceptanceBar />
+                </div>
+            </div>
             <Pagination
                 hasPrevPage={start > 0}
-                hasNextPage={end < problems.length}
+                hasNextPage={end < problemsResult.data.length}
             />
         </>
     );

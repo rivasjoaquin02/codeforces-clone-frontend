@@ -14,14 +14,14 @@
 }
 
 body {
-    background: url("/bg.svg");
+    background: url("/bg-noise.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    margin: 0px;
 
-    /* min-height: 100vh; */
+    margin: 0px;
+    padding: min(5vw, 20px);
 }
 
 main {
@@ -29,9 +29,8 @@ main {
     flex-direction: column;
     gap: 15px;
     font-size: 12px;
-    padding: 50px 0;
 
-    max-width: 900px;
+    max-width: min(90vw, 1020px);
     margin: auto auto;
     color: var(--text-color);
 }
@@ -51,9 +50,15 @@ a {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+.error-message {
+    background: var(--bg-error);
+    display: flex;
+    gap: 10px;
+}
+
 .auth-layout {
     display: flex;
-    height: calc(100vh - 72px);
+    height: calc(100vh - 200px);
 }
 
 .box-container {
@@ -73,11 +78,6 @@ a {
 
 /* Create Problems Page */
 
-.problem-info {
-    display: flex;
-    flex-direction: column;
-}
-
 .problem-grid {
     display: grid;
     grid-template-rows: repeat(3, 1f);
@@ -85,16 +85,25 @@ a {
     gap: 15px;
 }
 
-.error-message {
-    background: var(--bg-error);
-
-    display: flex;
-    gap: 10px;
-}
-
 .submit-solution-grid {
     display: grid;
-    grid-template-rows: repeat(5, 1f);
+    grid-template-rows: repeat(3, 1f);
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .problem-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .submit-solution-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .submit-solution-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

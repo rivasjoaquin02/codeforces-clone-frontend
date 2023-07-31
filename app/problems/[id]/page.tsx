@@ -1,34 +1,27 @@
 import ProblemInfo from "@/components/Problems/ProblemInfo";
-import { getProblemById, getProblems } from "@/services/problems";
-import { ProblemDB } from "@/types";
+import { getProblemById, getProblems } from "@/services/problem/problems";
+import { ProblemDB } from "@/services/problem/types";
 
-type Props = {
+// export const generateStaticParams = async (): Promise<Array<{ id: string }> | undefined> => {
+//     // function for generate static paths at build time
+//     const problemsResult = await getProblems();
+//     return problemsResult.data.map((problem) => ({ id: problem.id }));
+// };
+
+const getProblemWithId = async (id: string): Promise<ProblemDB | undefined> => {
+    const problemResult = await getProblemById(id);
+    if (!problemResult.success) throw new Error("Problem not found");
+    return problemResult.data;
+};
+
+const ProblemIdPage = async ({
+    params,
+}: {
     params: {
         id: string;
     };
-};
-
-export const generateStaticParams = async () => {
-    // function for generate static paths at build time
-    try {
-        const problems = await getProblems();
-        return problems.map((problem) => ({ id: problem.id }));
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-const getProblem = async (id: string): Promise<ProblemDB | undefined> => {
-    try {
-        const problem = await getProblemById(id);
-        return problem;
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-const ProblemIdPage = async ({ params }: Props) => {
-    const problem = await getProblem(params.id);
+}) => {
+    const problem = await getProblemWithId(params.id);
 
     return (
         <>
