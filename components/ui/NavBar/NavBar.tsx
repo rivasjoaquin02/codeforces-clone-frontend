@@ -1,3 +1,5 @@
+"use client";
+
 import "./NavBar.css";
 
 import { BookMarked, Bot, Home } from "lucide-react";
@@ -6,8 +8,7 @@ import Avatar from "../Avatar/Avatar";
 import DropDown from "../DropDown/DropDown";
 import DropDownItem from "../DropDown/DropDownItem";
 
-import { KeyRound, KeySquare } from "lucide-react";
-import Button from "../Button/Button";
+import { KeyRound, KeySquare, PersonStanding } from "lucide-react";
 
 const WEBSITE_TITLE = "code";
 const routes = [
@@ -16,9 +17,11 @@ const routes = [
     { value: "scoreboard", url: "/scoreboard", icon: Bot },
 ];
 
+import { signIn, signOut, useSession } from "next-auth/react";
+import Button from "../Button/Button";
+
 const NavBar = () => {
-    // const {session} = useSession();
-    const session = undefined;
+    const { data: session } = useSession();
 
     return (
         <div className="navbar-container">
@@ -44,28 +47,39 @@ const NavBar = () => {
                     </ul>
                 </nav>
                 <DropDown icon={<Avatar />}>
-                    {!session ? (
-                        <DropDownItem>
-                            <Button variant="nav">Logout</Button>
-                        </DropDownItem>
-                    ) : (
+                    {session ? (
                         <>
                             <DropDownItem>
                                 <ButtonRedirect
+                                    redirectUrl="/profile"
                                     variant="nav"
-                                    redirectUrl="/login"
                                 >
-                                    <KeyRound size={20} />
-                                    Login
+                                    <PersonStanding size={17} />
+                                    Profile
                                 </ButtonRedirect>
                             </DropDownItem>
                             <DropDownItem>
+                                <Button handleClick={signOut}>
+                                    <KeyRound size={17} />
+                                    Sign Out
+                                </Button>
+                            </DropDownItem>
+                        </>
+                    ) : (
+                        <>
+                            <DropDownItem>
+                                <Button handleClick={signIn}>
+                                    <KeyRound size={17} />
+                                    Sign-In
+                                </Button>
+                            </DropDownItem>
+                            <DropDownItem>
                                 <ButtonRedirect
+                                    redirectUrl="/register"
                                     variant="nav"
-                                    redirectUrl="/signin"
                                 >
-                                    <KeySquare size={20} />
-                                    Signin
+                                    <KeySquare size={17} />
+                                    Register
                                 </ButtonRedirect>
                             </DropDownItem>
                         </>

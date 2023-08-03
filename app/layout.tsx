@@ -1,3 +1,4 @@
+import AuthProvider from "@/context/AuthProvider";
 import "./globals.css";
 import NavBar from "@/components/ui/NavBar/NavBar";
 import type { Metadata } from "next";
@@ -20,8 +21,10 @@ export default function RootLayout({
         <StrictMode>
             <html lang="en">
                 <body className={inter.className}>
-                    <NavBar />
-                    {children}
+                    <AuthProvider>
+                        <NavBar />
+                        {children}
+                    </AuthProvider>
                 </body>
             </html>
         </StrictMode>

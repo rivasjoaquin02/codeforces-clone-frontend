@@ -1,3 +1,5 @@
+"use client";
+
 import "./Button.css";
 import { ReactNode } from "react";
 
@@ -5,7 +7,7 @@ interface Props {
     handleClick?: () => void;
     variant?: "primary" | "secondary" | "submit" | "nav" | "dashed";
     children: ReactNode;
-    disabled?: boolean
+    disabled?: boolean;
 }
 
 const Button = ({ handleClick, variant, children, disabled }: Props) => (
@@ -13,7 +15,7 @@ const Button = ({ handleClick, variant, children, disabled }: Props) => (
         type={`${variant === "submit" ? "submit" : "button"}`}
         className={`btn ${variant ? `btn-${variant}` : ""} border`}
         // className={`${styles.btn} ${styles[`btn-${variant}`]} border`}
-        onClick={handleClick}
+        onClick={handleClick && (() => handleClick())}
         disabled={disabled}
     >
         {children}

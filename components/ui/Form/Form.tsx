@@ -5,7 +5,7 @@ import { Key } from "lucide-react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import Label from "../Label/Label";
-import { Field } from "@/app/(auth)/login/page";
+import { Field } from "@/app/(auth)/signin/page";
 import { useReducer } from "react";
 
 interface FormProps {

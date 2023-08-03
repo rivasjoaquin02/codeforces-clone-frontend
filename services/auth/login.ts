@@ -1,22 +1,15 @@
-import { Login, Token } from "./types";
 import { isLoginCredentials } from "./validate";
-
 import { Result } from "@/types";
-import { storeSession } from "../session/session";
 import axios from "axios";
-import { Session } from "../session/types";
+import { UserResponse } from "@/app/api/auth/[...nextauth]/options";
 
 const baseUrl = "http://127.0.0.1:8000/auth";
 
-const login = (credentials: Login) => {
-    const credentialsRecord: Record<string, string> = { ...credentials };
+type RegisterField = "username" | "password" | "email" | "fullname";
 
-    return axios
-        .post<Token>(`${baseUrl}/login`, new URLSearchParams(credentialsRecord))
-        .then((response) => response.data);
-};
-
-const loginService = async (credentials: Login): Promise<Result<Session>> => {
+const loginService = async (
+    credentials: Record<RegisterField, string>
+): Promise<Result<UserResponse>> => {
     if (!isLoginCredentials(credentials))
         return {
             success: false,
@@ -24,16 +17,21 @@ const loginService = async (credentials: Login): Promise<Result<Session>> => {
         };
 
     try {
-        const session = await login(credentials).then(
-            (token) => ({ ...token, username: credentials.username } as Session)
+        const { data: user } = await axios.post<UserResponse>(
+            `${baseUrl}/login`,
+            new URLSearchParams(credentials)
         );
 
-        if (!session)
+        if (!user)
             return {
                 success: false,
                 error: "Invalid Credentials",
             };
-        return storeSession(session);
+
+        return {
+            success: true,
+            data: user,
+        };
     } catch (e) {
         const error = e as Error;
         return {
