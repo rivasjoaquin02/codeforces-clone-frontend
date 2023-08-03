@@ -16,7 +16,7 @@
 body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 
     background: url("/bg-noise.svg");
     background-repeat: no-repeat;
@@ -31,13 +31,6 @@ body {
     font-size: 12px;
     max-width: min(90vw, 1020px);
     margin: auto auto;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-size: 12px;
 }
 
 .skeleton {

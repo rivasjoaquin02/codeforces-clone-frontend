@@ -44,15 +44,12 @@
     display: flex;
     flex-wrap: wrap;
 }
-/* .table-difficulty {
-    max-width: 10rem;
-} */
 
 .table-avatar {
     width: 60px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .table-container {
         flex-direction: column;
     }

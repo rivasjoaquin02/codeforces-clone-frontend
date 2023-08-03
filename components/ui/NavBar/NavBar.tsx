@@ -7,16 +7,18 @@ import DropDown from "../DropDown/DropDown";
 import DropDownItem from "../DropDown/DropDownItem";
 
 import { KeyRound, KeySquare } from "lucide-react";
+import Button from "../Button/Button";
 
 const WEBSITE_TITLE = "code";
 const routes = [
     { value: "home", url: "/", icon: Home },
     { value: "problems", url: "/problems", icon: BookMarked },
-    { value: "api", url: "/api-reference", icon: Bot },
+    { value: "scoreboard", url: "/scoreboard", icon: Bot },
 ];
 
 const NavBar = () => {
-    const userId = "uysf76s7fsdf";
+    // const {session} = useSession();
+    const session = undefined;
 
     return (
         <div className="navbar-container">
@@ -42,24 +44,32 @@ const NavBar = () => {
                     </ul>
                 </nav>
                 <DropDown icon={<Avatar />}>
-                    <DropDownItem>
-                        <ButtonRedirect variant="nav" redirectUrl="/login">
-                            <KeyRound size={24} fill="var(--clr-3)" />
-                            Login
-                        </ButtonRedirect>
-                    </DropDownItem>
-                    <DropDownItem>
-                        <ButtonRedirect variant="nav" redirectUrl="/signin">
-                            <KeySquare size={24} fill="var(--clr-3)" />
-                            Signin
-                        </ButtonRedirect>
-                    </DropDownItem>
-
-                    <DropDownItem>
-                        <ButtonRedirect variant="nav" redirectUrl="/login">
-                            Logout
-                        </ButtonRedirect>
-                    </DropDownItem>
+                    {!session ? (
+                        <DropDownItem>
+                            <Button variant="nav">Logout</Button>
+                        </DropDownItem>
+                    ) : (
+                        <>
+                            <DropDownItem>
+                                <ButtonRedirect
+                                    variant="nav"
+                                    redirectUrl="/login"
+                                >
+                                    <KeyRound size={20} />
+                                    Login
+                                </ButtonRedirect>
+                            </DropDownItem>
+                            <DropDownItem>
+                                <ButtonRedirect
+                                    variant="nav"
+                                    redirectUrl="/signin"
+                                >
+                                    <KeySquare size={20} />
+                                    Signin
+                                </ButtonRedirect>
+                            </DropDownItem>
+                        </>
+                    )}
                 </DropDown>
             </div>
         </div>
