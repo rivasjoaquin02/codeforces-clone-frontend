@@ -1,3 +1,5 @@
+"use client";
+
 import "./Table.css";
 import { ArrowDownUp, User } from "lucide-react";
 import Tag from "../../ui/Tag/Tag";
@@ -5,6 +7,8 @@ import Tag from "../../ui/Tag/Tag";
 import ButtonRedirect from "@/components/ui/Button/ButtonRedirect";
 import Avatar from "@/components/ui/Avatar/Avatar";
 import { ProblemDB } from "@/services/problem/types";
+import { useRouter } from "next/navigation";
+import Button from "@/components/ui/Button/Button";
 
 const HEADERS = [
     {
@@ -35,17 +39,32 @@ interface Props {
 }
 
 const Table = ({ problems }: Props) => {
+    const router = useRouter();
+
     return (
         <table className="table border glass">
             <thead>
                 <tr>
                     {HEADERS.map((header) => (
-                        <th key={header.value} id={header.value}>
-                            <div>
-                                {header.icon && <header.icon size={20} />}
-                                {header.label}
-                                {header.isSortable && <ArrowDownUp size={20} />}
-                            </div>
+                        <th
+                            key={header.value}
+                            id={header.value}
+                            className="table-header-item"
+                        >
+                            {header.icon && <header.icon size={20} />}
+                            {header.label}
+                            {header.isSortable && (
+                                <Button
+                                    handleClick={() =>
+                                        router.push(
+                                            `/problems/?sortBy=${header.value}`
+                                        )
+                                    }
+                                    variant="nav"
+                                >
+                                    <ArrowDownUp size={20} />
+                                </Button>
+                            )}
                         </th>
                     ))}
                 </tr>
@@ -63,13 +82,16 @@ const Table = ({ problems }: Props) => {
                         </td>
                         <td className="table-tags">
                             {problem.tags.map((tag) => (
-                                <Tag key={tag}> {tag} </Tag>
+                                <Tag variant="normal" key={tag}>
+                                    {tag}
+                                </Tag>
                             ))}
                         </td>
                         <td className="table-difficulty">
-                            <Tag difficulty={problem.difficulty}>
-                                {problem.difficulty}
-                            </Tag>
+                            <Tag
+                                variant="difficulty"
+                                mode={problem.difficulty}
+                            />
                         </td>
                         <td className="table-avatar">
                             <Avatar />

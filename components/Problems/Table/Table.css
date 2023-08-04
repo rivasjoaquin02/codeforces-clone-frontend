@@ -20,7 +20,7 @@
     margin-right: 10px;
 }
 
-.table th {
+.table-header-item {
     background-color: var(--clr-2);
     font-size: 0.9rem;
 }

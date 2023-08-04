@@ -2,12 +2,54 @@
     border-radius: 50%;
     border: 2px solid var(--border-color);
     overflow: hidden;
-    transition: border 300ms ease-in-out;
     cursor: pointer;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    z-index: 0;
 }
 
 .avatar:hover {
     border-color: var(--clr-3);
     box-shadow: 0 0 0 0.2rem rgb(168, 150, 123, 0.25);
+}
+
+.avatar-image-emoji {
+    position: relative;
+    z-index: 0;
+}
+
+.emoji {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    /* transform: translate(0, 7rem); */
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.avatar-add {
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+    background: var(--clr-2);
+    margin-inline: auto;
+    color: var(--clr-3);
+
+    display: grid;
+    place-items: center;
+}
+
+.avatar-add:hover {
+    border-color: var(--clr-3);
+    box-shadow: 0 0 0 0.2rem rgb(168, 150, 123, 0.25);
+    color: var(--clr-3-hover);
+}
+
+.avatar-add svg {
+    height: 30%;
+    width: 30%;
 }

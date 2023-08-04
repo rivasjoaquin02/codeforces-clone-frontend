@@ -33,6 +33,7 @@ const SearchBar = ({
             <div className="searchbar-filter">
                 <div>
                     <Input
+                        type="search"
                         value={title}
                         handleChange={setTitle}
                         datalist={datalist}
@@ -56,7 +57,12 @@ const SearchBar = ({
             </div>
 
             <div className="tags-container-slider">
-                {tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+                {tags &&
+                    tags.map((tag) => (
+                        <Tag variant="normal" key={tag}>
+                            {tag}
+                        </Tag>
+                    ))}
             </div>
 
             <ButtonRedirect redirectUrl="/problems/create" variant="dashed">

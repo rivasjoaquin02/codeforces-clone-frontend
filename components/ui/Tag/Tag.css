@@ -5,6 +5,8 @@
     --clr-medium-hover: rgb(240, 173, 78);
     --clr-hard: rgb(217, 83, 79, 0.8);
     --clr-hard-hover: rgb(217, 83, 79);
+    --clr-pro: rgb(135, 86, 226);
+    --clr-noob: rgb(146, 83, 54);
 }
 
 .tag-container {
@@ -73,6 +75,16 @@
 
 .tag-hard:hover {
     background: var(--clr-hard-hover);
+}
+
+.tag-badge-pro {
+    color: var(--clr-pro);
+    border-color: var(--clr-pro);
+}
+
+.tag-badge-noob {
+    color: var(--clr-noob);
+    border-color: var(--clr-noob);
 }
 
 @media (max-width: 768px) {

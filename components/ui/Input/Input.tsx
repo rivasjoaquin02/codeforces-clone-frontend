@@ -1,15 +1,17 @@
 import "./Input.css";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 
 interface InputProps {
     id?: string;
-    type?: "text" | "number" | "password" | "email";
-    value: string | Array<string>;
+    type?: HTMLInputTypeAttribute;
+    value?: string | Array<string>;
     variant?: "primary" | "secondary";
-    handleChange: (value: string) => void; //TODO: fix this any
+    handleChange?: (value: string) => void; //TODO: fix this any
     required?: boolean;
+    readOnly?: boolean;
     datalist?: Array<string>;
+    placeholder?: string;
 }
 
 const Input = ({
@@ -19,7 +21,9 @@ const Input = ({
     variant = "primary",
     handleChange,
     required = false,
+    readOnly,
     datalist,
+    placeholder,
 }: InputProps) => (
     <>
         <input
@@ -29,11 +33,15 @@ const Input = ({
             className={`input ${
                 variant ? `input-${variant}` : ""
             } input-${variant} border`}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                handleChange(e.target.value)
+            onChange={
+                handleChange &&
+                ((e: ChangeEvent<HTMLInputElement>) =>
+                    handleChange(e.target.value))
             }
             required={required}
             list="datalist"
+            readOnly={readOnly}
+            placeholder={placeholder}
         />
         {datalist && (
             <datalist id="datalist">

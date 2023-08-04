@@ -17,6 +17,15 @@ const Calendar = () => {
                 <div>
                     Day <span>{currentDay}</span>
                 </div>
+                <div className="marquee announcement">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aliquam necessitatibus deserunt vel sit quae soluta, eos
+                        distinctio! Voluptas aliquid debitis non, asperiores
+                        deleniti ea? Placeat laudantium nobis facilis iusto
+                        quos.
+                    </p>
+                </div>
                 <Button
                     variant="nav"
                     handleClick={() => setHide((prev) => !prev)}

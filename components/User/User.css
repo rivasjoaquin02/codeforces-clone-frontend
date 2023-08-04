@@ -1,0 +1,32 @@
+.profileinfo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    grid-row: span 3;
+    box-sizing: border-box;
+    padding: 10px 20px 20px 20px;
+}
+
+.profileinfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profileinfo-container .avatar {
+    margin-inline: auto;
+}
+
+.info-username {
+}
+
+.info-email {
+    font-weight: lighter;
+}
+
+.info-location {
+    display: flex;
+    align-items: center;
+}

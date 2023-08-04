@@ -9,6 +9,7 @@ interface Props {
     height?: number;
     handleClick?: () => void;
     skeleton?: boolean;
+    emoji?: string;
 }
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
@@ -23,19 +24,23 @@ const Avatar = ({
     height = 34,
     handleClick,
     skeleton,
+    emoji,
 }: Props) =>
     skeleton ? (
         <div className="avatar skeleton" style={{ height, width }}></div>
     ) : (
         <div className="avatar" style={{ height, width }} onClick={handleClick}>
-            <Image
-                // loader={imageLoader}
-                alt={alt ?? "Avatar"}
-                src={userId ?? "/images/default-avatar.jpg"}
-                width={width}
-                height={height}
-                // placeholder="blur"
-            />
+            <div className="avatar-image-emoji">
+                <Image
+                    // loader={imageLoader}
+                    alt={alt ?? "Avatar"}
+                    src={userId ?? "/images/default-avatar.jpg"}
+                    width={width}
+                    height={height}
+                    // placeholder="blur"
+                />
+                <div className="emoji">{emoji}</div>
+            </div>
         </div>
     );
 

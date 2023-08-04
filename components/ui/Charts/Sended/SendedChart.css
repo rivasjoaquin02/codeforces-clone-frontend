@@ -1,0 +1,45 @@
+.sendedchart-container {
+    display: flex;
+    flex-direction: column;
+    grid-row: span 2;
+
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+}
+
+.sendedchart {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    list-style: armenian;
+}
+
+.solution {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
+.solution-time {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.accepted {
+    color: #00ff00;
+}
+
+.rejected {
+    color: #ff0000;
+}
+
+.pending {
+    color: #ff8c00;
+}

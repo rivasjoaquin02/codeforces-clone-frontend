@@ -21,6 +21,19 @@ const isMatch = (
     return match;
 };
 
+const sortByTitle = (a: ProblemDB, b: ProblemDB): number =>
+    a.title > b.title ? 1 : -1;
+
+const sortByDifficulty = (a: ProblemDB, b: ProblemDB): number => {
+    if (a.difficulty === "easy" && b.difficulty === "medium") return -1;
+    if (a.difficulty === "easy" && b.difficulty === "hard") return -1;
+    if (a.difficulty === "medium" && b.difficulty === "hard") return -1;
+    if (a.difficulty === "medium" && b.difficulty === "easy") return 1;
+    if (a.difficulty === "hard" && b.difficulty === "easy") return 1;
+    if (a.difficulty === "hard" && b.difficulty === "medium") return 1;
+    return 0;
+};
+
 const TAGS = [
     "Array",
     "String",
@@ -35,16 +48,24 @@ const TAGS = [
     "Hash Table",
 ];
 
+const sortByX = (caracter?: string) => {
+    if (caracter === "title") return sortByTitle;
+    else if (caracter === "difficulty") return sortByDifficulty;
+    return () => 0;
+};
+
 const ProblemsPage = async ({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined };
+    searchParams: { [key: string]: string | undefined };
 }) => {
     const page = searchParams["page"] ?? "1";
     const per_page = searchParams["per_page"] ?? "10";
 
     const filterByTitle = searchParams["title"] ?? "";
     const filterByDifficulty = searchParams["difficulty"] ?? "";
+
+    const sortedBy = searchParams["sortBy"];
 
     const start = (Number(page) - 1) * Number(per_page);
     const end = start + Number(per_page);
@@ -53,26 +74,39 @@ const ProblemsPage = async ({
     if (!problemsResult.success)
         return <div>Failed to fetch problems: {problemsResult.error}</div>;
 
-    const entries = problemsResult.data
+    const filteredProblems = problemsResult.data
         .slice(start, end)
         .filter((problem) =>
             isMatch(problem, filterByTitle[0], filterByDifficulty[0])
-        );
+        )
+        .sort(sortByX(sortedBy));
+
+    let amountByCategory = {
+        easy: 0,
+        medium: 0,
+        hard: 0,
+    };
+
+    problemsResult.data.forEach((problem) => {
+        if (problem.difficulty === "easy") amountByCategory.easy += 1;
+        else if (problem.difficulty === "medium") amountByCategory.medium += 1;
+        else if (problem.difficulty === "hard") amountByCategory.hard += 1;
+    });
 
     return (
         <>
             {/* <SearchBarSkeleton /> */}
             <Problems.SearchBar
-                datalist={entries.map((entry) => entry.title)}
+                datalist={filteredProblems.map((entry) => entry.title)}
                 tags={TAGS}
             />
             <div className="table-container">
                 <div className="table-left">
                     <Calendar />
-                    <AcceptanceBar />
+                    <AcceptanceBar amountByCategory={amountByCategory} />
                 </div>
                 {/* <TableSkeleton /> */}
-                <Problems.Table problems={entries} />
+                <Problems.Table problems={filteredProblems} />
             </div>
             <Pagination
                 hasPrevPage={start > 0}
