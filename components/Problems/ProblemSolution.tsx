@@ -12,8 +12,8 @@ const ProblemSolution = ({ problem }: Props) => {
     const [code, setCode] = useState<string>("");
 
     const {
-        id,
-        authorId,
+        // id,
+        // authorId,
         title,
         description,
         difficulty,

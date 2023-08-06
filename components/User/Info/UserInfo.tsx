@@ -9,7 +9,10 @@ interface Props {
 }
 
 const UserInfo = ({ style }: Props) => {
-    const [edit, setEdit] = useState(false);
+    const [edit] = useState(false);
+
+    // delete this
+    // setEdit(false);
 
     return <div style={style}>{!edit ? <Info /> : <InfoEdit />}</div>;
 };

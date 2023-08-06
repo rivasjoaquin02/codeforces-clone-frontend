@@ -4,6 +4,11 @@ import StreakChart from "@/components/ui/Charts/Streak/StreakChart";
 import SendedChart from "@/components/ui/Charts/Sended/SendedChart";
 import UserInfo from "@/components/User/Info/UserInfo";
 
+export type HistoryType = Array<{
+    status: "accepted" | "rejected" | "pending";
+    date: Date;
+}>;
+
 const Profile = async () => {
     const amountByCategory = {
         easy: 3,
@@ -11,7 +16,7 @@ const Profile = async () => {
         hard: 0,
     };
 
-    const history = [
+    const history: HistoryType = [
         {
             status: "accepted",
             date: new Date("2023-04-01"),

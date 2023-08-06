@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, useState } from "react";
+import { useState } from "react";
 import BoxContainer from "../BoxContainer";
 import Label from "../ui/Label/Label";
 import Select from "../ui/Select/Select";

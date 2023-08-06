@@ -7,6 +7,7 @@
     --clr-hard-hover: rgb(217, 83, 79);
     --clr-pro: rgb(135, 86, 226);
     --clr-noob: rgb(146, 83, 54);
+    --clr-disabled: rgb(108, 117, 125);
 }
 
 .tag-container {
@@ -75,6 +76,10 @@
 
 .tag-hard:hover {
     background: var(--clr-hard-hover);
+}
+
+.tag-disabled {
+    background: var(--clr-disabled);
 }
 
 .tag-badge-pro {

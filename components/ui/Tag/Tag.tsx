@@ -4,7 +4,7 @@ import "./Tag.css";
 
 type Props =
     | { variant: "normal"; children: ReactNode }
-    | { variant: "difficulty"; mode: "easy" | "medium" | "hard" }
+    | { variant: "difficulty"; mode: "easy" | "medium" | "hard" | "disabled" }
     | { variant: "skeleton" }
     | { variant: "badge"; mode: "pro" | "noob" };
 

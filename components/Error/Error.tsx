@@ -2,7 +2,6 @@ import Button from "../ui/Button/Button";
 import ButtonRedirect from "../ui/Button/ButtonRedirect";
 import "./Error.css";
 import { XCircle, RefreshCcw, Key } from "lucide-react";
-import { NotLoggedInException } from "@/lib/exceptions";
 
 const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
     return (
@@ -14,7 +13,7 @@ const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
                 <XCircle size={100} />
             </div>
             <div className="error-button">
-                {error instanceof NotLoggedInException ? (
+                {error instanceof Error ? (
                     <ButtonRedirect
                         variant="primary"
                         handleClick={reset}
