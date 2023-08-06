@@ -15,6 +15,8 @@ export type UserResponse = {
     };
 };
 
+const API_URL = process.env.API_URL || "";
+
 export const authOptions: NextAuthOptions = {
     pages: {
         signIn: "/signin",
@@ -40,7 +42,7 @@ export const authOptions: NextAuthOptions = {
 
                 const user = await axios
                     .post<UserResponse>(
-                        `http://127.0.0.1:8000/auth/signin`,
+                        `${API_URL}/auth/signin`,
                         new URLSearchParams(credentials)
                     )
                     .then((response) => response.data);

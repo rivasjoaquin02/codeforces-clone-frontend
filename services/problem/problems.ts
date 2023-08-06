@@ -4,7 +4,8 @@ import { Problem, ProblemDB } from "./types";
 import { Result } from "@/types";
 import { getSession } from "../session/session";
 
-const baseUrl = `http://127.0.0.1:8000/problems`;
+const API_URL = process.env.API_URL || "";
+const baseUrl = `${API_URL}/problems`;
 
 export const createProblem = async (
     problem: Problem

@@ -2,7 +2,7 @@ import axios from "axios";
 import { Result } from "@/types";
 import { UserResponse } from "@/app/api/auth/[...nextauth]/options";
 
-const baseUrl: string = "http://127.0.0.1:8000/auth";
+const API_URL = process.env.API_URL || "";
 
 type RegisterField = "username" | "password" | "email" | "fullname";
 
@@ -25,7 +25,7 @@ const registerService = async (
         )}&fullname=${credentials.fullname.replace(" ", "%20")}`;
 
         const { data: user } = await axios.post<UserResponse>(
-            `${baseUrl}/register${queryParams}`,
+            `${API_URL}/auth/register${queryParams}`,
             new URLSearchParams({
                 username: credentials.username,
                 password: credentials.password,
