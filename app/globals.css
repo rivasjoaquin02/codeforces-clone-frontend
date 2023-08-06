@@ -26,7 +26,7 @@ body {
     flex-direction: column;
     gap: 15px;
 
-    background: url("/bg-noise.svg");
+    background: url("/bg.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
