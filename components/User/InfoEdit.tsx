@@ -13,7 +13,7 @@ const InfoEdit = () => {
     const [email, setEmail] = useState<string>("");
     const [birthday, setBirthday] = useState<string>();
 
-    console.log(birthday);
+    // console.log(birthday);
 
     return (
         <div className="profileinfo-container glass border">

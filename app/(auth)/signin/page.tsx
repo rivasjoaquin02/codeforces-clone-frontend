@@ -29,7 +29,7 @@ const LoginPage = () => {
             redirect: true,
             callbackUrl: "/",
         });
-        console.log("signin");
+        // console.log("signin");
     };
 
     return (

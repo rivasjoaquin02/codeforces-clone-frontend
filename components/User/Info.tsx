@@ -23,7 +23,7 @@ const Info = () => {
         },
     });
 
-    console.log(birthday);
+    // console.log(birthday);
 
     return (
         <div className="profileinfo-container glass border">

@@ -32,7 +32,7 @@ const registerService = async (
             })
         );
 
-        console.log(user);
+        // console.log(user);
 
         if (!user)
             return {

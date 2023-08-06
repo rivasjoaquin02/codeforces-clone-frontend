@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
             },
 
             async authorize(credentials) {
-                console.log(credentials);
+                // console.log(credentials);
 
                 if (!credentials?.username || !credentials.password)
                     return null;
@@ -62,7 +62,7 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         session: async ({ session, token }) => {
-            console.log("Session Callback", { session, token });
+            // console.log("Session Callback", { session, token });
 
             return {
                 ...session,
@@ -75,7 +75,7 @@ export const authOptions: NextAuthOptions = {
             };
         },
         jwt: async ({ token, user }) => {
-            console.log("JWT Callback", { token, user });
+            // console.log("JWT Callback", { token, user });
 
             if (user) {
                 const u = user as UserResponse;

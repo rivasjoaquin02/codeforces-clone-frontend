@@ -1,6 +1,6 @@
 import Problems from "@/components/Problems/Problems";
-import SearchBarSkeleton from "@/components/Problems/SearchBar/SearchBarSkeleton";
-import TableSkeleton from "@/components/Problems/Table/TableSkeleton";
+// import SearchBarSkeleton from "@/components/Problems/SearchBar/SearchBarSkeleton";
+// import TableSkeleton from "@/components/Problems/Table/TableSkeleton";
 import AcceptanceBar from "@/components/ui/AcceptanceBars/AcceptanceBar";
 import Calendar from "@/components/ui/Calendar/Calendar";
 import Pagination from "@/components/ui/Pagination/Pagination";

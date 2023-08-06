@@ -27,7 +27,7 @@ const SignInForm = () => {
             fullname,
         });
 
-        console.log(userResult);
+        // console.log(userResult);
         
 
         if (!userResult.success) {
