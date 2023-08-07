@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../styles/globals.css";
 import AuthProvider from "@/context/AuthProvider";
 import NavBar from "@/components/ui/NavBar/NavBar";
 import type { Metadata } from "next";

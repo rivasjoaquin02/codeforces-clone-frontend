@@ -1,0 +1,12 @@
+:root {
+    --clr-1: rgb(30, 6, 6, 0.4, 0.8);
+    --clr-1-hover: rgb(30, 6, 6);
+    --clr-2: rgba(64, 47, 47, 0.8);
+    --clr-2-hover: rgba(64, 47, 47);
+    --clr-3: rgb(168, 150, 123, 0.8);
+    --clr-3-hover: rgb(168, 150, 123);
+
+    --text-color: rgb(240, 246, 252, 0.8);
+    --border-color: rgba(255, 255, 255, 0.05);
+    --border-color-hover: rgba(255, 255, 255, 0.2);
+}
