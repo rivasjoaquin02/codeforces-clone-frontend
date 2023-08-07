@@ -8,17 +8,19 @@ interface Props {
     children: ReactNode;
 }
 
-const DropDown = ({ icon, children }: Props) => {
+export const DropDown = ({ icon, children }: Props) => {
     const [open, setOpen] = useState(false);
 
     return (
         <div className="dropdown">
-            <div onClick={() => setOpen(!open)}>
-                {icon}
+            <div onClick={() => setOpen(!open)}>{icon}</div>
+            <div className="dropdown__menu glass border">
+                {open && children}
             </div>
-            <div className="dropdown-menu glass border">{open && children}</div>
         </div>
     );
 };
 
-export default DropDown;
+export const DropDownItem = ({ children }: { children: ReactNode }) => {
+    return <div className="dropdown__item">{children}</div>;
+};

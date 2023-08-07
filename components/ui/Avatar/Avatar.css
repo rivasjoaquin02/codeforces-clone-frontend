@@ -1,11 +1,12 @@
 .avatar {
+    position: relative;
+    z-index: 0;
+
     border-radius: 50%;
     border: 2px solid var(--border-color);
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    z-index: 0;
 }
 
 .avatar:hover {
@@ -13,12 +14,7 @@
     box-shadow: 0 0 0 0.2rem rgb(168, 150, 123, 0.25);
 }
 
-.avatar-image-emoji {
-    position: relative;
-    z-index: 0;
-}
-
-.emoji {
+.avatar--emoji {
     position: absolute;
     top: 0;
     right: 0;

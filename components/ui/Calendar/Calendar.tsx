@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import "./Calendar.css";
+import { useState } from "react";
 import { ArrowDown } from "lucide-react";
 import Button from "../Button/Button";
 
@@ -13,11 +13,11 @@ const Calendar = () => {
 
     return (
         <div className="calendar border glass">
-            <div className="calendar-header">
+            <div className="calendar__header">
                 <div>
                     Day <span>{currentDay}</span>
                 </div>
-                <div className="marquee announcement">
+                <div className="marquee">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Aliquam necessitatibus deserunt vel sit quae soluta, eos
@@ -34,21 +34,21 @@ const Calendar = () => {
                 </Button>
             </div>
             {hide && (
-                <div className="calendar-body">
+                <div className="calendar__body">
                     <ol>
-                        <li className="week-day">S</li>
-                        <li className="week-day">M</li>
-                        <li className="week-day">T</li>
-                        <li className="week-day">W</li>
-                        <li className="week-day">T</li>
-                        <li className="week-day">F</li>
-                        <li className="week-day">S</li>
+                        <li className="calendar__weekday">S</li>
+                        <li className="calendar__weekday">M</li>
+                        <li className="calendar__weekday">T</li>
+                        <li className="calendar__weekday">W</li>
+                        <li className="calendar__weekday">T</li>
+                        <li className="calendar__weekday">F</li>
+                        <li className="calendar__weekday">S</li>
 
                         {Array(30)
                             .fill(0)
                             .map((_, i) => {
                                 return (
-                                    <li className="calendar-day" key={i}>
+                                    <li className="calendar__day" key={i}>
                                         {i + 1}
                                     </li>
                                 );

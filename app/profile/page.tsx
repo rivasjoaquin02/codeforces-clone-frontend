@@ -1,8 +1,7 @@
-import User from "@/components/User/User";
 import AcceptanceBar from "@/components/ui/AcceptanceBars/AcceptanceBar";
-import StreakChart from "@/components/ui/Charts/Streak/StreakChart";
+import ActiveDaysChart from "@/components/ui/Charts/ActiveDays/ActiveDaysChart";
 import SendedChart from "@/components/ui/Charts/Sended/SendedChart";
-import UserInfo from "@/components/User/Info/UserInfo";
+import UserInfo from "@/components/ui/UserInfo/UserInfo";
 
 export type HistoryType = Array<{
     status: "accepted" | "rejected" | "pending";
@@ -34,9 +33,16 @@ const Profile = async () => {
     return (
         <div className="profile-page">
             <UserInfo style={{ gridRow: "span 4" }} />
-            <StreakChart />
+            <ActiveDaysChart />
             <AcceptanceBar amountByCategory={amountByCategory} />
-            <User.Placeholder style={{ gridRow: "span 3" }} />
+
+            <div
+                className="profile-placeholder glass border"
+                style={{ gridRow: "span 3" }}
+            >
+                Placeholder
+            </div>
+
             <SendedChart history={history} />
         </div>
     );

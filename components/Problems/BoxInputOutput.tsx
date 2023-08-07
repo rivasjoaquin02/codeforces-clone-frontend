@@ -1,4 +1,3 @@
-import BoxContainer from "../BoxContainer";
 import Label from "../ui/Label/Label";
 import TextArea from "../ui/TextArea/TextArea";
 
@@ -15,7 +14,7 @@ const BoxInputOutput = ({
     handleChangeInput,
     handleChangeOutput,
 }: Props) => (
-    <BoxContainer>
+    <div className="box-container box border glass">
         <Label id="input-example">Input Example</Label>
         <TextArea
             id="input-example"
@@ -30,7 +29,7 @@ const BoxInputOutput = ({
             handleChange={handleChangeOutput}
             readOnly={!handleChangeOutput}
         />
-    </BoxContainer>
+    </div>
 );
 
 export default BoxInputOutput;

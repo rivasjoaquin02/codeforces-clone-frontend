@@ -19,14 +19,11 @@
     margin-inline: auto;
 }
 
-.info-username {
-}
-
-.info-email {
+.profileinfo__email {
     font-weight: lighter;
 }
 
-.info-location {
+.profileinfo__location {
     display: flex;
     align-items: center;
 }

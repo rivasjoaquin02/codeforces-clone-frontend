@@ -3,8 +3,6 @@ import "./Avatar.css";
 import { ImagePlus } from "lucide-react";
 
 interface Props {
-    alt?: string;
-    userId?: string;
     width?: number;
     height?: number;
     handleClick?: () => void;

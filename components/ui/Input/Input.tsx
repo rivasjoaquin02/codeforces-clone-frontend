@@ -6,7 +6,6 @@ interface InputProps {
     id?: string;
     type?: HTMLInputTypeAttribute;
     value?: string | Array<string>;
-    variant?: "primary" | "secondary";
     handleChange?: (value: string) => void; //TODO: fix this any
     required?: boolean;
     readOnly?: boolean;
@@ -18,7 +17,6 @@ const Input = ({
     id,
     type = "text",
     value,
-    variant = "primary",
     handleChange,
     required = false,
     readOnly,
@@ -30,9 +28,7 @@ const Input = ({
             id={id}
             type={type}
             value={value}
-            className={`input ${
-                variant ? `input-${variant}` : ""
-            } input-${variant} border`}
+            className="input border"
             onChange={
                 handleChange &&
                 ((e: ChangeEvent<HTMLInputElement>) =>

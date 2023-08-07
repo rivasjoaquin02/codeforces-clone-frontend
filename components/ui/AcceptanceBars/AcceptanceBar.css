@@ -7,16 +7,16 @@
     height: fit-content;
 }
 
-.porcentage-easy,
-.porcentage-medium,
-.porcentage-hard {
+.acceptancebar__easy,
+.acceptancebar__medium,
+.acceptancebar__hard {
     position: relative;
     padding: 4px;
 }
 
-.porcentage-easy span,
-.porcentage-medium span,
-.porcentage-hard span {
+.acceptancebar__easy span,
+.acceptancebar__medium span,
+.acceptancebar__hard span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -41,22 +41,22 @@
     filter: blur(20px) brightness(1);
 }
 
-.porcentage-easy svg:first-child,
-.porcentage-medium svg:first-child,
-.porcentage-hard svg:first-child {
+.acceptancebar__easy svg:first-child,
+.acceptancebar__medium svg:first-child,
+.acceptancebar__hard svg:first-child {
     position: absolute;
     top: 0;
     filter: none;
 }
 
-.porcentage-easy svg {
-    stroke: #00ff00;
+.acceptancebar__easy svg {
+    stroke: var(--easy);
 }
 
-.porcentage-medium svg {
-    stroke: #ffcc00;
+.acceptancebar__medium svg {
+    stroke: var(--medium);
 }
 
-.porcentage-hard svg {
-    stroke: #ff0000;
+.acceptancebar__hard svg {
+    stroke: var(--hard);
 }

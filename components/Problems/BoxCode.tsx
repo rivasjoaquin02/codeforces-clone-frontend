@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import BoxContainer from "../BoxContainer";
 import Label from "../ui/Label/Label";
 import Select from "../ui/Select/Select";
 
@@ -25,7 +24,7 @@ const BoxCode = ({ value, handleChange }: Props) => {
     const [lang, setLang] = useState<string>("");
 
     return (
-        <BoxContainer style={{ flexGrow: 2 }}>
+        <div className="box-container box border glass" style={{ flexGrow: 2 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Label id="input-example">Solution</Label>
                 <Select
@@ -34,14 +33,14 @@ const BoxCode = ({ value, handleChange }: Props) => {
                     options={LANGUAGES}
                 />
             </div>
-            <div style={{flexGrow: 2}}>
+            <div style={{ flexGrow: 2 }}>
                 <textarea
                     value={value}
                     className="textarea textarea-code"
                     onChange={(e) => handleChange(e.target.value)}
                 />
             </div>
-        </BoxContainer>
+        </div>
     );
 };
 

@@ -28,11 +28,11 @@ textarea[readonly] {
     color: #999;
 }
 
-.textarea-primary {
+.textarea--primary {
     height: 100%;
 }
 
-.textarea-code {
+.textarea--code {
     font-family: 'Fira Code', monospace;
     font-size: 1rem;
     line-height: 1.5;

@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 interface Props {
     redirectUrl: string;
     handleClick?: () => void;
+    type?: "button" | "submit";
     variant?: "primary" | "secondary" | "submit" | "nav" | "dashed";
     children: ReactNode;
 }
@@ -14,11 +15,12 @@ const ButtonRedirect = ({
     handleClick,
     variant,
     children,
+    type = "button",
 }: Props) => (
     <Link
         href={redirectUrl}
-        type={`${variant === "submit" ? variant : "button"}`}
-        className={`btn ${variant ? `btn-${variant}` : ""} border`}
+        type={type}
+        className={`btn ${variant ? `btn--${variant}` : ""} border`}
         onClick={handleClick}
     >
         {children}

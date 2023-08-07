@@ -21,30 +21,29 @@
     height: fit-content;
 }
 
-.navbar-title {
-    /* display: none; */
+.navbar__title {
     font-size: 0.5rem;
     color: var(--text-color);
     margin-left: 5px;
 }
 
-.navbar-title span {
+.navbar__title span {
     font-size: 1.2rem;
 }
 
-.navbar-items {
+.navbar__items {
     display: flex;
     /* gap: 0.1rem; */
     padding: 0 5px;
     margin: 0;
 }
 
-.navbar-item {
+.navbar__item {
     list-style: none;
     font-size: 1.3rem;
 }
 
-.navbar-item:hover {
+.navbar__item:hover {
     background-color: var(--clr-1);
     border-radius: 20%;
 }

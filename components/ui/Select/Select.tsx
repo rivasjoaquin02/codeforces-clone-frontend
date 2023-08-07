@@ -23,9 +23,11 @@ const Select = ({
             value={value}
             defaultValue={defaultValue}
             onChange={handleChange}
-            className={`select border`}
+            className="select border"
         >
-            <option value="">{title}</option>
+            <option className="select__option" value="">
+                {title}
+            </option>
             {options.map((option) => (
                 <option key={option.value} value={option.value}>
                     {option.label}

@@ -1,8 +1,10 @@
 "use client";
 
+import "./UserInfo.css";
+
 import { StyleHTMLAttributes, useState } from "react";
-import Info from "../Info";
-import InfoEdit from "../InfoEdit";
+import Info from "./Info";
+import InfoEdit from "./InfoEdit";
 
 interface Props {
     style: StyleHTMLAttributes<HTMLDivElement>["style"];

@@ -1,5 +1,5 @@
 import { StyleHTMLAttributes } from "react";
-import "./StreakChart.css";
+import "./ActiveDaysChart.css";
 
 const MONTHS = [
     "Jan",
@@ -16,24 +16,24 @@ const MONTHS = [
     "Dec",
 ];
 
-const StreakChart = ({
+const ActiveDaysChart = ({
     style,
 }: {
     style?: StyleHTMLAttributes<HTMLDivElement>["style"];
 }) => {
     return (
-        <div className="streak-container glass border" style={style}>
-            <ul className="month-container">
+        <div className="activedays-container glass border" style={style}>
+            <ul className="activedays__months">
                 {MONTHS.map((month) => (
-                    <li key={month} className="month">
-                        <span className="month-title">{month}</span>
-                        <ul className="days-container">
+                    <li key={month} className="activedays__month">
+                        <span>{month}</span>
+                        <ul className="activedays__days">
                             {Array(31)
                                 .fill(0)
                                 .map((_, i) => (
                                     <li
                                         key={`day${i + 1}`}
-                                        className="day"
+                                        className="activedays__day"
                                     ></li>
                                 ))}
                         </ul>
@@ -44,4 +44,4 @@ const StreakChart = ({
     );
 };
 
-export default StreakChart;
+export default ActiveDaysChart;

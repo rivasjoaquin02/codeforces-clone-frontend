@@ -44,12 +44,12 @@ const Table = ({ problems }: Props) => {
     return (
         <table className="table border glass">
             <thead>
-                <tr>
+                <tr className="table__row">
                     {HEADERS.map((header) => (
                         <th
                             key={header.value}
                             id={header.value}
-                            className="table-header-item"
+                            className="table__header-item"
                         >
                             {header.icon && <header.icon size={20} />}
                             {header.label}
@@ -71,8 +71,8 @@ const Table = ({ problems }: Props) => {
             </thead>
             <tbody>
                 {problems.map((problem) => (
-                    <tr key={problem.id} id={problem.id}>
-                        <td className="table-title">
+                    <tr key={problem.id} id={problem.id} className="table__row">
+                        <td className="table__item table__title">
                             <ButtonRedirect
                                 redirectUrl={`/problems/${problem.id}`}
                                 variant="nav"
@@ -80,20 +80,20 @@ const Table = ({ problems }: Props) => {
                                 {problem.title}
                             </ButtonRedirect>
                         </td>
-                        <td className="table-tags">
+                        <td className="table__item table__tags">
                             {problem.tags.map((tag) => (
                                 <Tag variant="normal" key={tag}>
                                     {tag}
                                 </Tag>
                             ))}
                         </td>
-                        <td className="table-difficulty">
+                        <td className="table__item">
                             <Tag
                                 variant="difficulty"
                                 mode={problem.difficulty}
                             />
                         </td>
-                        <td className="table-avatar">
+                        <td className="table__item">
                             <Avatar />
                         </td>
                     </tr>

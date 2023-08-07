@@ -1,4 +1,3 @@
-import BoxContainer from "../BoxContainer";
 import Tag from "../ui/Tag/Tag";
 
 interface Props {
@@ -8,7 +7,10 @@ interface Props {
 }
 
 const BoxTitleDifficultyTags = ({ title, difficulty, tags }: Props) => (
-    <BoxContainer style={{ gridRow: "span 2" }}>
+    <div
+        className="box-container box border glass"
+        style={{ gridRow: "span 2" }}
+    >
         <h3>{title}</h3>
         <h3>Difficulty</h3>
         <div className="tag-container">
@@ -33,7 +35,7 @@ const BoxTitleDifficultyTags = ({ title, difficulty, tags }: Props) => (
                 </Tag>
             ))}
         </div>
-    </BoxContainer>
+    </div>
 );
 
 export default BoxTitleDifficultyTags;

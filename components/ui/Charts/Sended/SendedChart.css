@@ -16,7 +16,7 @@
     list-style: armenian;
 }
 
-.solution {
+.sendedchart__solution {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -26,20 +26,20 @@
     font-size: 1.2rem;
 }
 
-.solution-time {
+.sendedchart__solution-time {
     font-weight: bold;
     font-size: 0.8rem;
     color: gray;
 }
 
 .accepted {
-    color: #00ff00;
+    color: var(--accepted);
 }
 
 .rejected {
-    color: #ff0000;
+    color: var(--rejected);
 }
 
 .pending {
-    color: #ff8c00;
+    color: var(--pending);
 }

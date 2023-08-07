@@ -17,21 +17,6 @@
     align-items: center;
 }
 
-.tags-container-slider {
-    display: flex;
-    /* height: 34px; */
-    gap: 5px;
-    align-items: center;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    max-height: 30px;
-    padding: 0;
-}
-
-.tags-container-slider::-webkit-scrollbar {
-    display: none;
-}
-
 .tag {
     display: inline-block;
 
@@ -49,45 +34,45 @@
     /* overflow-wrap: break-word; */
 }
 
-.tag-skeleton {
+.tag--skeleton {
     height: 20px;
     width: 40px;
 }
 
-.tag-easy {
+.tag--easy {
     background: var(--clr-easy);
 }
 
-.tag-easy:hover {
+.tag--easy:hover {
     background: var(--clr-easy-hover);
 }
 
-.tag-medium {
+.tag--medium {
     background: var(--clr-medium);
 }
 
-.tag-medium:hover {
+.tag--medium:hover {
     background: var(--clr-medium-hover);
 }
 
-.tag-hard {
+.tag--hard {
     background: var(--clr-hard);
 }
 
-.tag-hard:hover {
+.tag--hard:hover {
     background: var(--clr-hard-hover);
 }
 
-.tag-disabled {
+.tag--disabled {
     background: var(--clr-disabled);
 }
 
-.tag-badge-pro {
+.tag--badge-pro {
     color: var(--clr-pro);
     border-color: var(--clr-pro);
 }
 
-.tag-badge-noob {
+.tag--badge-noob {
     color: var(--clr-noob);
     border-color: var(--clr-noob);
 }

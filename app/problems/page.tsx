@@ -1,11 +1,12 @@
 import Problems from "@/components/Problems/Problems";
-// import SearchBarSkeleton from "@/components/Problems/SearchBar/SearchBarSkeleton";
-// import TableSkeleton from "@/components/Problems/Table/TableSkeleton";
+import TableSkeleton from "@/components/Problems/Table/TableSkeleton";
+
 import AcceptanceBar from "@/components/ui/AcceptanceBars/AcceptanceBar";
 import Calendar from "@/components/ui/Calendar/Calendar";
 import Pagination from "@/components/ui/Pagination/Pagination";
 import { getProblems } from "@/services/problem/problems";
 import { ProblemDB } from "@/services/problem/types";
+import { Suspense } from "react";
 
 const isMatch = (
     problem: ProblemDB,
@@ -95,19 +96,20 @@ const ProblemsPage = async ({
 
     return (
         <>
-            {/* <SearchBarSkeleton /> */}
             <Problems.SearchBar
                 datalist={filteredProblems.map((entry) => entry.title)}
                 tags={TAGS}
             />
-            <div className="table-container">
-                <div className="table-left">
-                    <Calendar />
-                    <AcceptanceBar amountByCategory={amountByCategory} />
+            <Suspense fallback={<TableSkeleton />}>
+                <div className="table-container">
+                    <div className="table-container__left">
+                        <Calendar />
+                        <AcceptanceBar amountByCategory={amountByCategory} />
+                    </div>
+                    {/* <TableSkeleton /> */}
+                    <Problems.Table problems={filteredProblems} />
                 </div>
-                {/* <TableSkeleton /> */}
-                <Problems.Table problems={filteredProblems} />
-            </div>
+            </Suspense>
             <Pagination
                 hasPrevPage={start > 0}
                 hasNextPage={end < problemsResult.data.length}

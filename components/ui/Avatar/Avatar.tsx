@@ -8,7 +8,6 @@ interface Props {
     width?: number;
     height?: number;
     handleClick?: () => void;
-    skeleton?: boolean;
     emoji?: string;
 }
 
@@ -22,25 +21,19 @@ const Avatar = ({
     width = 34,
     height = 34,
     handleClick,
-    skeleton,
     emoji,
-}: Props) =>
-    skeleton ? (
-        <div className="avatar skeleton" style={{ height, width }}></div>
-    ) : (
-        <div className="avatar" style={{ height, width }} onClick={handleClick}>
-            <div className="avatar-image-emoji">
-                <Image
-                    // loader={imageLoader}
-                    alt={alt ?? "Avatar"}
-                    src={userId ?? "/images/default-avatar.jpg"}
-                    width={width}
-                    height={height}
-                    // placeholder="blur"
-                />
-                <div className="emoji">{emoji}</div>
-            </div>
-        </div>
-    );
+}: Props) => (
+    <div className="avatar" style={{ height, width }} onClick={handleClick}>
+        <Image
+            alt={alt ?? "Avatar"}
+            src={userId ?? "/images/default-avatar.jpg"}
+            width={width}
+            height={height}
+            // loader={imageLoader}
+            // placeholder="blur"
+        />
+        <div className="avatar--emoji">{emoji}</div>
+    </div>
+);
 
 export default Avatar;

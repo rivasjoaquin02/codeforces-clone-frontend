@@ -8,7 +8,7 @@ interface TextAreaProps {
     readOnly?: boolean;
 }
 
-const Input = ({
+const TextArea = ({
     id,
     value,
     variant,
@@ -19,7 +19,7 @@ const Input = ({
         <textarea
             id={id}
             value={value}
-            className={`textarea ${variant ? `textarea-${variant}` : ""}`}
+            className={`textarea ${variant ? `textarea--${variant}` : ""}`}
             onChange={
                 handleChange ? (e) => handleChange(e.target.value) : undefined
             }
@@ -28,4 +28,4 @@ const Input = ({
     );
 };
 
-export default Input;
+export default TextArea;

@@ -6,7 +6,6 @@ import Input from "@/components/ui/Input/Input";
 import Select from "@/components/ui/Select/Select";
 import { DIFFICULTIES } from "@/components/Problems/SearchBar/SearchBar";
 import Problems from "@/components/Problems/Problems";
-import BoxContainer from "@/components/BoxContainer";
 import Label from "@/components/ui/Label/Label";
 import Button from "@/components/ui/Button/Button";
 import { Problem } from "@/services/problem/types";
@@ -87,7 +86,10 @@ const CreateProblemPage = () => {
 
     return (
         <div className="problem-grid">
-            <BoxContainer style={{ gridRow: "span 2" }}>
+            <div
+                className="box-container box border glass"
+                style={{ gridRow: "span 2" }}
+            >
                 <Label id="title">Title</Label>
                 <Input
                     id="title"
@@ -108,13 +110,16 @@ const CreateProblemPage = () => {
                     value={state.tags}
                     handleChange={createHandleChange("tags")}
                 />
-            </BoxContainer>
+            </div>
 
-            <BoxContainer style={{ gridColumn: "span 2" }}>
+            <div
+                className="box-container box border glass"
+                style={{ gridRow: "span 2" }}
+            >
                 <Button handleClick={handleClick} variant="primary">
                     Create Problem
                 </Button>
-            </BoxContainer>
+            </div>
 
             <Problems.BoxDescription
                 description={state.description}

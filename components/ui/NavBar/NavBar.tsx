@@ -5,8 +5,6 @@ import "./NavBar.css";
 import { BookMarked, Bot, Home } from "lucide-react";
 import ButtonRedirect from "../Button/ButtonRedirect";
 import Avatar from "../Avatar/Avatar";
-import DropDown from "../DropDown/DropDown";
-import DropDownItem from "../DropDown/DropDownItem";
 
 import { KeyRound, KeySquare, PersonStanding } from "lucide-react";
 
@@ -19,23 +17,24 @@ const routes = [
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import Button from "../Button/Button";
+import { DropDown, DropDownItem } from "../DropDown/DropDown";
 
 const NavBar = () => {
     const { data: session } = useSession();
 
     return (
-        <div className="navbar-container">
+        <header className="navbar-container">
             <div className="navbar glass">
-                <div className="navbar-title">
+                <div className="navbar__title">
                     <h1>
                         <span>_</span>
                         {WEBSITE_TITLE}
                     </h1>
                 </div>
                 <nav>
-                    <ul className="navbar-items">
+                    <ul className="navbar__items">
                         {routes.map((route) => (
-                            <li key={route.value} className="navbar-item">
+                            <li key={route.value} className="navbar__item">
                                 <ButtonRedirect
                                     redirectUrl={route.url}
                                     variant="nav"
@@ -86,7 +85,7 @@ const NavBar = () => {
                     )}
                 </DropDown>
             </div>
-        </div>
+        </header>
     );
 };
 

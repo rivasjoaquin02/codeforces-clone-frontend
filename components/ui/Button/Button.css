@@ -30,36 +30,36 @@
     cursor: default;
 }
 
-.btn-primary {
+.btn--primary {
     background: var(--clr-3);
 }
 
-.btn-primary:hover {
+.btn--primary:hover {
     background: var(--clr-3-hover);
 }
 
-.btn-secondary {
+.btn--secondary {
     background: var(--clr-2);
 }
 
-.btn-secondary:hover {
+.btn--secondary:hover {
     background: var(--clr-2-hover);
 }
 
-.btn-submit {
+.btn--submit {
     background: var(--clr-1);
     padding: 10px 0;
     width: 100%;
 }
 
-.btn-submit:hover {
+.btn--submit:hover {
     background: var(--clr-1-hover);
 }
 
-.btn-nav {
+.btn--nav {
     border: none;
 }
 
-.btn-dashed {
+.btn--dashed {
     border: 1px dashed;
 }

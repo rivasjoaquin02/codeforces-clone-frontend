@@ -1,7 +1,4 @@
 .input {
-    display: block;
-    /* width: 100%; */
-
     box-sizing: border-box;
     padding: 8px;
 
@@ -19,7 +16,6 @@
     border-color: var(--clr-3);
     box-shadow: 0 0 0 0.2rem rgb(168, 150, 123, 0.25);
 }
-
 
 .input-skeleton {
     display: block;

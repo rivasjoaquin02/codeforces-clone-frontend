@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import "./User.css";
 
 import { MapPin, Edit2 } from "lucide-react";
-import Button from "../ui/Button/Button";
-import Input from "../ui/Input/Input";
-import AvatarAdd from "../ui/Avatar/AvatarAdd";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
+import AvatarAdd from "../Avatar/AvatarAdd";
 
 const InfoEdit = () => {
     const [username, setUsername] = useState<string>("");

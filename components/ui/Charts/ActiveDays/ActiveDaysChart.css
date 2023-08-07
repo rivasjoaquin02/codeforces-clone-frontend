@@ -1,9 +1,5 @@
-:root {
-    --a1: #006d32;
-    --a2: hsla(130, 64%, 40%);
-}
 
-.streak-container {
+.activedays-container {
     grid-column: span 2;
 
     display: flex;
@@ -15,7 +11,7 @@
     scrollbar-width: thin;
 }
 
-.month-container {
+.activedays__months {
     list-style: none;
     display: flex;
 
@@ -25,13 +21,13 @@
     gap: 2px;
 }
 
-.month {
+.activedays__month {
     display: flex;
     flex-direction: column;
     /* width: 100px; */
 }
 
-.days-container {
+.activedays__days {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -43,7 +39,7 @@
     gap: 1px;
 }
 
-.day {
+.activedays__day {
     width: 15px;
     height: 15px;
 
@@ -51,24 +47,21 @@
     border-radius: 4px;
 }
 
-.day:hover {
+.activedays__day:hover {
     background: var(--clr-3);
 }
 
-.day-active1 {
-    background: var(--a1);
+.low-active {
+    background: var(--lowactive);
 }
 
-.day-active2 {
-    background: var(--a2);
+.high-active {
+    background: var(--highactive);
 }
 
-.day-active3 {
-    background: var(--a3);
-}
 
 @media (max-width: 768px) {
-    .streak-container {
+    .activedays-container {
         grid-column: span 1;
     }
 }

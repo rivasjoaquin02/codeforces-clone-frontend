@@ -1,4 +1,4 @@
-import { Circle } from "lucide-react";
+import { CircleIcon } from "lucide-react";
 import "./AcceptanceBar.css";
 
 interface Props {
@@ -9,22 +9,22 @@ interface Props {
     };
 }
 
-const AcceptanceBar = ({amountByCategory}: Props) => {
+const AcceptanceBar = ({ amountByCategory }: Props) => {
     return (
         <div className="acceptancebar glass border">
-            <div className="porcentage-easy">
-                <Circle />
-                <Circle />
+            <div className="acceptancebar__easy">
+                <CircleIcon />
+                <CircleIcon />
                 <span>{amountByCategory.easy}</span>
             </div>
-            <div className="porcentage-medium">
-                <Circle />
-                <Circle />
+            <div className="acceptancebar__medium">
+                <CircleIcon />
+                <CircleIcon />
                 <span>{amountByCategory.medium}</span>
             </div>
-            <div className="porcentage-hard">
-                <Circle />
-                <Circle />
+            <div className="acceptancebar__hard">
+                <CircleIcon />
+                <CircleIcon />
                 <span>{amountByCategory.hard}</span>
             </div>
         </div>

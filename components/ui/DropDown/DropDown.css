@@ -3,14 +3,14 @@
     display: inline-block;
 }
 
-.dropdown-menu {
+.dropdown__menu {
     position: absolute;
     display: flex;
     flex-direction: column;
     width: fit-content;
 }
 
-.dropdown-item {
+.dropdown__item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

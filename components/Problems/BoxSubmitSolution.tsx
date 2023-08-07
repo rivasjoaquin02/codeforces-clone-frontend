@@ -1,5 +1,4 @@
 import { CSSProperties } from "react";
-import BoxContainer from "../BoxContainer";
 import ButtonRedirect from "../ui/Button/ButtonRedirect";
 
 interface Props {
@@ -7,11 +6,11 @@ interface Props {
 }
 
 const BoxSubmitSolution = ({ style }: Props) => (
-    <BoxContainer style={style} >
+    <div className="box-container box border glass" style={style}>
         <ButtonRedirect redirectUrl="submit" variant="secondary">
             Submit Solution
         </ButtonRedirect>
-    </BoxContainer>
+    </div>
 );
 
 export default BoxSubmitSolution;

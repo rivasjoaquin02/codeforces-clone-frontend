@@ -30,7 +30,7 @@ const SearchBar = ({
 
     return (
         <div className="searchbar box border glass">
-            <div className="searchbar-filter">
+            <div className="searchbar__filter">
                 <div>
                     <Input
                         type="search"

@@ -33,7 +33,7 @@ const Pagination = ({ hasPrevPage, hasNextPage }: Props) => {
                 Prev
             </Button>
 
-            <div className="pagination-page glass border">
+            <div className="pagination__page glass border">
                 <h3>
                     {page} / {Math.ceil(10 / Number(per_page))}
                 </h3>
